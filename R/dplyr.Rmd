@@ -1,0 +1,91 @@
+---
+title: "Learn dplyr"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+
+What's with the underscore functions?
+
+
+# Objects
+
+### tbl
+
+tbl_df() makes for nicer print with no? side effects.
+
+
+
+# Working With Rows
+
+### filter()
+
+### arrange()
+
+### distinct()
+commonly used as distinct(select(...)) to find uniqe
+~base::unique
+
+
+
+# Working With COlumns
+
+
+### select()/rename()
+
+### mutate()/transmute()
+
+
+
+---
+
+# Grouping
+
+
+### group_by()
+
+### summarize_each()
+
+###tally()/count()
+
+
+
+---
+
+# Manipulations
+
+
+### join_*
+~base::merge
+
+[Hadley:Two-table verbs](https://rpubs.com/hadley/45044)
+
+If matches aren't exact generates Cartesian product.
+
+## matching joins
+
+inner_join(x, y) only includes observations that match in both x and y.
+
+left_join(x, y) includes all observations in x, regardless of whether they match or not. This is the most commonly used join because it ensures that you don’t lose observations from your primary table.
+
+right_join(x, y) includes all obserations in y. It’s equivalent to left_join(y, x), but the columns will be ordered differently.
+
+full_join() includes all observations from x and y.
+
+## filtering joins
+
+These only ever remove observations.
+
+semi_join(x, y) return all observations in x that have a match in y.
+anti_join(x, y) return all observaitons in x that don’t have a match in y.
+
+
+
+
+
+
+bind_rows()/bind_cols()
+~rbind/cbind?!
+

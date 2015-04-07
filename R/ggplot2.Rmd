@@ -1,0 +1,74 @@
+---
+title: "Learn ggplot2"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r, echo=FALSE}
+library(ggplot2)
+```
+
+
+
+layers?
+
+
+qplot
+ggplot
+
+
+fill
+
+
+# Aesthetics (aes)
+aes/aes_string
+
+
+---
+
+# Geometries (geom)
+
+
+
+
+### [geom_line](http://docs.ggplot2.org/current/geom_line.html)
+
+### geom_path - preserves data ordering not numerical
+
+### [geom_smooth](http://docs.ggplot2.org/current/geom_smooth.html)
+
+### geom_ribbon
+
+
+
+---
+
+# Facets
+
+### facet_wrap
+
+
+---
+
+# Stats
+
+### stat_summary
+
+
+### [stat_smooth](http://docs.ggplot2.org/current/stat_smooth.html)
+
+method=lm, glm, gam, loess, rlm
+
+
+
+---
+
+# Gotchas
+If outputting to file must use print(), eg. print(qlot(...))
+
+coord_cartesian(xlim=, ylim=) - does not drop points
+xlim/ylim - convenience functions, drops points
+
+
+

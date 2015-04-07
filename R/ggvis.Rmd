@@ -1,0 +1,23 @@
+---
+title: "Learn ggvis"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+
+
+
+
+# Vs. ggplot2
+
+No faceting!
+
+ggvis ~ qplot
+
+layer ~ geom/layer
+
+stat ~ compute function
+
+%>% ~ +

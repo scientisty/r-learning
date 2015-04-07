@@ -1,0 +1,43 @@
+---
+title: "Learn plotly"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+# Plotly Style
+
+library(plotly)
+py = plotly()
+
+
+response = py$plotly(...)
+response$url
+
+
+
+---
+
+# GGplot2 Style
+
+```
+py = plotly(username= ,key=)
+gg = ggplot(...)
+py$ggplotly(gg)
+
+```
+
+
+
+## Embedding in Knitr
+
+
+
+```
+{r, plotly=TRUE}
+pl$ggplotly(gg, session="knitr")
+plotly=TRUE 
+```
+
+

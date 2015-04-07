@@ -1,0 +1,29 @@
+---
+title: "Learn Markdown"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+This is oriented toward authoring markdown in RStudio/knitr but will be more general than that.
+
+
+# Markdown General
+
+
+### Code
+Inline with backticks
+Blocks with three backticks or indent 4 spaces or one tab
+
+
+
+
+
+# R Markdown
+
+
+
+
+
+
