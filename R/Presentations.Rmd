@@ -1,0 +1,17 @@
+---
+title: "Presentations"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+R has some nice tools for slick presentations.  The lines get fuzzy between HTML and JavaScript.
+
+
+
+
+# Slidify
+
+
+
