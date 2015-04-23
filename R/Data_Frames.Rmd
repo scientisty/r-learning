@@ -1,22 +1,38 @@
 ---
-title: "Learn data tables"
+title: "Learn data frames"
 author: "Spencer Mathews"
 date: "`r Sys.Date()`"
 output: html_document
 ---
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r}
-summary(cars)
-```
 
-You can also embed plots, for example:
+# [Subsetting](http://adv-r.had.co.nz/Subsetting.html)
 
-```{r, echo=FALSE}
-plot(cars)
-```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+subset
+split
+merge
+
+
+Note: these may apply more broadly than data frames.
+cut...
+
+aggregate
+
+
+
+# Factors
+
+Factors can be unordered or [ordered](http://www.cookbook-r.com/Manipulating_data/Changing_the_order_of_levels_of_a_factor/).  Ordered factors impose an inequality among levels.
+
+- factor() - create factor
+
+- ordered() - create ordered factor
+
+- relevel()
+
+- reorder()
+
+I believe that factors are by definition characters, so if you end up with numeric data as a factor then to convert to simple numeric values you do `as.numeric(as.character(myfactor))` or else you will end up with sequential integers reflecting the factor levels arbitrarily.

@@ -7,6 +7,38 @@ output: html_document
 
 
 
+fill,, fillOpacity
+stroke, strokeWidth, strokeOpacity
+
+shape
+size
+
+*.hover!!!
+add_tooltip
+
+add_axis
+add/hide_legend
+
+---
+
+
+1. fill
+2. stroke
+3. size
+4. shape
+
+
+
+# Interaction
+The docs has a reference on [interactivity](http://ggvis.rstudio.com/interactivity.html).
+
+- input_slider(): a slider (or a double-ended range slider)
+- input_checkbox(): a check-box
+- input_checkboxgroup(): a group of check boxes
+- input_numeric(): a spin box
+- input_radiobuttons(): pick one from a set options
+- input_select(): create a drop-down text box
+- input_text(): arbitrary text input
 
 
 

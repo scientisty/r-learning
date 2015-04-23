@@ -6,25 +6,30 @@ output: html_document
 ---
 
 
+Dplyr lets you omit quotes when referencing stuff, but there are functions which _end with underscores_ which take quoted strings and are suitable for using programmtically. 
 
-What's with the underscore functions?
-
+Do not use meaningful row names with dplyr since they are not guaranteed to be preserved.
 
 # Objects
 
 ### tbl
 
-tbl_df() makes for nicer print with no? side effects.
+`tbl_df()` makes for nicer print with no? side effects.
+vs?
+[`data_frame()`](http://cran.r-project.org/web/packages/dplyr/vignettes/data_frames.html)
+
+
+
 
 
 
 # Working With Rows
 
-### filter()
+### `filter()`
 
-### arrange()
+### `arrange()`
 
-### distinct()
+### `distinct()`
 commonly used as distinct(select(...)) to find uniqe
 ~base::unique
 
@@ -33,9 +38,16 @@ commonly used as distinct(select(...)) to find uniqe
 # Working With COlumns
 
 
-### select()/rename()
+### `select()/rename()`
 
-### mutate()/transmute()
+Note that if you're grouped the grouping variable stays around!
+
+`num_range()` lets you select with "X" or other prefix
+
+### `mutate()/transmute()`
+
+
+### `summarise()`
 
 
 
@@ -43,12 +55,20 @@ commonly used as distinct(select(...)) to find uniqe
 
 # Grouping
 
+Grouping a data frame by the value of a specified variable allows for the 
 
-### group_by()
+### `group_by()`
 
-### summarize_each()
+Grouping variable is stored in `vars` attribute!
 
-###tally()/count()
+### `summarise_each()`
+
+Species functions including `n()`...
+
+
+### `mutate_each`
+
+### `tally()/count()`
 
 
 
@@ -57,8 +77,8 @@ commonly used as distinct(select(...)) to find uniqe
 # Manipulations
 
 
-### join_*
-~base::merge
+## `join_*`
+~`base::merge`
 
 [Hadley:Two-table verbs](https://rpubs.com/hadley/45044)
 
@@ -66,26 +86,30 @@ If matches aren't exact generates Cartesian product.
 
 ## matching joins
 
-inner_join(x, y) only includes observations that match in both x and y.
+### `inner_join(x, y)` only includes observations that match in both x and y.
 
-left_join(x, y) includes all observations in x, regardless of whether they match or not. This is the most commonly used join because it ensures that you don’t lose observations from your primary table.
+### `left_join(x, y)` includes all observations in x, regardless of whether they match or not. This is the most commonly used join because it ensures that you don’t lose observations from your primary table.
 
-right_join(x, y) includes all obserations in y. It’s equivalent to left_join(y, x), but the columns will be ordered differently.
+### `right_join(x, y)` includes all obserations in y. It’s equivalent to left_join(y, x), but the columns will be ordered differently.
 
-full_join() includes all observations from x and y.
+### `full_join()` includes all observations from x and y.
 
 ## filtering joins
 
 These only ever remove observations.
 
-semi_join(x, y) return all observations in x that have a match in y.
-anti_join(x, y) return all observaitons in x that don’t have a match in y.
+### `semi_join(x, y)` return all observations in x that have a match in y.
+### `anti_join(x, y)` return all observaitons in x that don’t have a match in y.
 
-
-
-
-
-
-bind_rows()/bind_cols()
+### `bind_rows()/bind_cols()`
 ~rbind/cbind?!
+
+bind_rows(x, ...)
+
+bind_cols(x, ...)
+
+combine(x, ...) ~ c() and unlist()
+
+
+
 

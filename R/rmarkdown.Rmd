@@ -9,21 +9,48 @@ output: html_document
 This is oriented toward authoring markdown in RStudio/knitr but will be more general than that.
 
 
-# Markdown General
+
+# Links
+
+1. [Rmarkdown Homepage](http://rmarkdown.rstudio.com)
 
 
-### Code
-Inline with backticks
-Blocks with three backticks or indent 4 spaces or one tab
+# Relevant Libraries
 
+- `rmarkdown`
+- `knitr`
+- `shiny`
 
-
+- [htmlwidgets](http://www.htmlwidgets.org/) - javascript bindings for console, R Markdown, Shiny, etc.
 
 
 # R Markdown
 
 
 
+
+### Code
+Inline with backticks.  If you start the code segment with r space then it will execute.
+Blocks with three backticks or indent 4 spaces or one tab
+
+
+----------------------------------------
+
+# [knitr](http://yihui.name/knitr/)
+
+
+
+
+## Chunk Options
+
+`{r [lablel], [options]}`
+
+### `echo=TRUE`
+### `results='hide'`
+
+### `cache=TRUE`
+Do not cache chunks which load libraries needed by uncached chunks.
+May need to explicitly set `cache=FALSE` on those chunks.
 
 
 

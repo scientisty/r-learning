@@ -11,18 +11,52 @@ library(ggplot2)
 
 
 
-layers?
+You call qplot or ggplot and then add _layers_ with `+`.
 
 
-qplot
-ggplot
+`ggsave` - save plot
 
+
+# Quickstart
+
+### Labeling 
+`labs(title= , x= , y= )` or can be individually set with `ggtitle()`, `xlab()`, `ylab()`
+
+
+
+
+# qplot
+
+
+```
+qplot(x, y = NULL, ..., data, facets = NULL, margins = FALSE,
+  geom = "auto", stat = list(NULL), position = list(NULL), 
+  xlim = c(NA, NA), ylim = c(NA, NA), log = "", 
+  main = NULL, xlab = deparse(substitute(x)), ylab = deparse(substitute(y)), asp = NA)
+```
+
+### Other Parameters to qplot
+
+
+
+
+group
+
+color
+shape
+size
+
+`alpha=` give it a variable or a fixed value like `alpha=I(1/10)`
 
 fill
 
 
+# ggplot
+
 # Aesthetics (aes)
 aes/aes_string
+
+You might include this in the call the ggplot or as a layer.
 
 
 ---
@@ -30,15 +64,129 @@ aes/aes_string
 # Geometries (geom)
 
 
+### [`geom_line`](http://docs.ggplot2.org/current/geom_line.html)
+
+### `geom_path` - preserves data ordering not numerical
+
+### [`geom_smooth`](http://docs.ggplot2.org/current/geom_smooth.html)
+
+By default it uses `stat_smooth`.
+
+### `geom_ribbon`
+
+Required aes are x, ymax, ymin.
+
+### `geom_histogram`
+
+> "geom_histogram is an alias for geom_bar plus stat_bin""
+
+### `geom_bar`
+
+Oddly defaults to stat="bar" and you get counts (don't set y).  If you want to represent values instead of counts set stat="identity" and don't supply y, or maybe this is for geom_errorbar
+
+We want discrete/factor values here ideally.
+
+### `geom_density`
 
 
-### [geom_line](http://docs.ggplot2.org/current/geom_line.html)
+### `geom_area`
 
-### geom_path - preserves data ordering not numerical
+Continuous analog of stacked bar chart, and special case of geom_ribbon with a minimum of 0 and default position of stacked.
 
-### [geom_smooth](http://docs.ggplot2.org/current/geom_smooth.html)
 
-### geom_ribbon
+### `geom_errorbar`
+### `geom_pointrange`
+### `geom_linerange`
+### `geom_crossbar`
+
+
+### `geom_tile`
+### `geom_raster`
+
+---
+
+# Stats
+
+### `stat_smooth`
+
+### `stat_identity`
+
+
+### `stat_summary`
+
+
+Can specify summary functions in fun.data, fun.y, fun.ymax, fun.ymin from the Hmisc package:
+mean_se - mean and standard erros
+mean_cl_boot(x, ...) - confidence limits with nonparametric bootstrapping method, does not assume normality.
+mean_cl_normal(x, ...) - sample mean and upper and lower Gaussian confidence limits based on t-distribution.
+mean_sdl(x, ...) - mean plus or minus constant time standard deviation, mult=2 is default
+median_hilow(x, ...) - sample median and some outlier quantiles
+
+It seems that
+
+
+### [`stat_smooth`](http://docs.ggplot2.org/current/stat_smooth.html)
+
+method=lm, glm, gam, loess, rlm
+
+
+### `stat_bin`
+
+Defaults to `geom="bar"` and `position="stack"`
+
+To create unit area histogram use `stat_bin(aes(y = ..density..), geom="line", position="identity"))`.  The geom and position may not be necessary.  Can also use this `..density..` when calling geom_histogram.
+
+Arguments:
+`binwidth=`
+
+mapping/aes
+
+
+returns special variables `..count..` and `..density..`
+
+
+
+### [`stat_sum`](http://docs.ggplot2.org/current/stat_sum.html)
+
+Cool summing plot.  Grouping specifies how dots will be scaled.
+
+Can set `stat_sum(aes(group = 1))` to size based on proportions of groupings, and if desired `scale_size(range = c(3, 10))`.  Specifying another grouping will give proportions relative to that group.
+
+Colour can be specified, too but it must be in addition to grouping or else the summing won't happen.
+You can `weight` by another variable.
+Show actual sums instead of proportions by `size = ..n..`, which might imply grouping?
+
+# Scales
+
+`scale_alpha()` = `scale_alpha_continuous`
+`scale_alpha_discrete()`
+
+
+# Position
+
+
+### `position_dodge`
+
+### `position_fill`
+
+### `position_identity`
+
+### `position_stack`
+
+### `position_jitter`
+
+
+
+
+
+# Coordinate Systems
+
+### `coord_cartesian`
+
+### `coord_polar`
+
+### `coord_map`
+
 
 
 
@@ -46,20 +194,39 @@ aes/aes_string
 
 # Facets
 
-### facet_wrap
+### `facet_wrap`
+
+### `facet_grid`
 
 
 ---
 
-# Stats
+# Scales
 
-### stat_summary
+`guides`/`guide_colourbar`/`guide_legend`
 
 
-### [stat_smooth](http://docs.ggplot2.org/current/stat_smooth.html)
 
-method=lm, glm, gam, loess, rlm
 
+
+
+---
+
+# [Legends](http://www.cookbook-r.com/Graphs/Legends_%28ggplot2%29/) ([docs](http://docs.ggplot2.org/current/labs.html))
+
+
+Turning off legends can be done with `guides(<color|fill|linetype|shape|etc>=FALSE)` and some other ways.  This may do other things too.
+
+1. `scale_colour/fill_hue/discrete`
+2. `scale_colour/fill_gradient/continuous`
+3. `scale_shape[_continuous/discrete]`
+4. `scale_size[_continous/discrete]`
+3. etc.
+
+
+---
+
+`theme` - for lots of stuff affecting looks
 
 
 ---
@@ -67,8 +234,55 @@ method=lm, glm, gam, loess, rlm
 # Gotchas
 If outputting to file must use print(), eg. print(qlot(...))
 
-coord_cartesian(xlim=, ylim=) - does not drop points
+`coord_cartesian(xlim=, ylim=)` - does not drop points
 xlim/ylim - convenience functions, drops points
+
+
+
+---
+
+# Tips and Tricks
+
+### Means and Standard Deviations
+
+The `stat_summary` layer can be used to plot an envelope around the mean.  It normally gives the standard error but you can specify `fun.data=mean_sdl`.  Using `geom='smooth'` plots the mean and fills a transparent ribbon around it.  It's not entirely clear how if any smoothing is actually done here.  Using `geom='ribbon'` just plots the surrounding ribbon and but you should specify and `alpha` if you want to add the mean line.
+
+
+1. smooth
+```
+ggplot(a, aes(x=x,y=y)) + geom_point() +
+  stat_summary(fun.data = 'mean_sdl', mult = 1, geom = 'smooth')
+```
+
+2. ribbon
+```
+ggplot(a, aes(x=x,y=y)) + 
+  stat_summary(fun.y = 'mean', colour = 'blue', geom = 'line') +
+  stat_summary(fun.data = 'mean_sdl', geom = 'ribbon', alpha = 0.2)
+```
+
+
+
+```
+# Hadley's wrapper function
+stat_sum_df <- function(fun, geom="crossbar", ...) { 
+  stat_summary(fun.data=fun, colour="blue", geom=geom, width=0.2, ...) 
+  
+p + stat_sum_df("mean_cl_normal", geom = "smooth") 
+} 
+```
+
+```
+nmmaps$mino3<-nmmaps$o3run-sd(nmmaps$o3run, na.rm=T)
+nmmaps$maxo3<-nmmaps$o3run+sd(nmmaps$o3run, na.rm=T)
+
+ggplot(nmmaps, aes(date, o3run))+geom_ribbon(aes(ymin=mino3, ymax=maxo3), fill="steelblue2", color="steelblue2")+
+  geom_line(color="steelblue4", lwd=1)
+```
+
+
+
+
 
 
 

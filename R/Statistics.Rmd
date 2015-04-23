@@ -7,19 +7,28 @@ output: html_document
 
 
 
+# Distributions
 
-
-
-
-
-
-lm() / glm()
-
-ls() / nls() 
+dnorm(x, mean = 0, sd = 1, log = FALSE)
+pnorm(q, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
+qnorm(p, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
+rnorm(n, mean = 0, sd = 1)
 
 
 # Model Formulae
 
+
+
+# Model Fitting
+
+lm() - linear model
+glm() - generalized linear model
+
+ls()
+stats::nls() - nonlinear least squares
+
+
+`summary()` give you info about the model you fitted.  Applied to data frames it summarizes each column.
 
 # Covariance
 var()

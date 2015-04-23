@@ -8,5 +8,45 @@ output: html_document
 
 
 
+# Interactive Sessions
+
+`sessionInfo()`
+
+
+
+# Objets and stuff
+
+### attributes
+attributes() - all attributes
+attr() - individually
+
+
+
+# Booleans
+
+all()
+
+# Regular Expressions
+
+
+## R Extended Regular Expressions
+
+`[[:digit:]]`
+`[[:alpha:]]`
+etc.
+
+
+grep/grepl
+
 # Functions
 Call by value only!?
+
+`...` to allow for arbitrary number and variety of arguments and to pass on to other functions
+`.Primitive()`?
+
+
+
+
+
+# Assertions
+`stopifnot()` or see [assertthat](https://github.com/hadley/assertthat) package.
