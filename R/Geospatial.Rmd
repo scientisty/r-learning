@@ -1,0 +1,36 @@
+---
+title: "Geospatial R"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+
+## Geospatial Data
+
+### sp!
+
+### rgdal
+
+### maptools
+
+### shapefiles
+
+
+maps
+
+mapproj
+
+
+---
+
+
+# Raster Processing
+
+## `raster` package
+
+## `ripa`
+Image processing package that can work with AVIRS!
+
+EBImage?

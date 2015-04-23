@@ -1,0 +1,36 @@
+---
+title: "shiny"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+# Links
+
+- [Shiny Homepage](http://shiny.rstudio.com/)
+    - [Shiny Tutorial](http://shiny.rstudio.com/tutorial/)
+    - [Shiny Articles](http://shiny.rstudio.com/articles/)
+        - [Introduction to R Markdown](http://shiny.rstudio.com/articles/rmarkdown.html)
+        - [Introduction to interactive documents](http://shiny.rstudio.com/articles/interactive-docs.html)
+- R Markdown Homepage
+    - [Interactive Documents](http://rmarkdown.rstudio.com/authoring_shiny.html)
+    - [Embedded Shiny Apps](http://rmarkdown.rstudio.com/authoring_embedded_shiny.html)
+    - [Creating Shiny Widgets](http://rmarkdown.rstudio.com/authoring_shiny_widgets.html)
+    - [Interactive Documents: Advanced Topics](http://rmarkdown.rstudio.com/authoring_shiny_advanced.html)
+
+# Basics
+
+
+`server.R` and `ui.R` or combiner server and UI in a single `app.R`
+
+
+
+
+
+# Deploy
+
+1. Host on [shinyapps.io](https://www.shinyapps.io)
+
+`runGitHub("user/repo")`
+`runURL`
