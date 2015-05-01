@@ -16,6 +16,8 @@ You call qplot or ggplot and then add _layers_ with `+`.
 
 `ggsave` - save plot
 
+Layers: can often use a `geom_*` or `stat_*` interchangeably.
+
 
 # Quickstart
 
@@ -95,6 +97,8 @@ Continuous analog of stacked bar chart, and special case of geom_ribbon with a m
 
 
 ### `geom_errorbar`
+Can explicitely set aex(ymin= , ymax= )
+
 ### `geom_pointrange`
 ### `geom_linerange`
 ### `geom_crossbar`
@@ -108,6 +112,12 @@ Continuous analog of stacked bar chart, and special case of geom_ribbon with a m
 # Stats
 
 ### `stat_smooth`
+
+method=lm/glm/loess/...
+Possibly more options avialable than geom_smooth.
+Defaults to show standard error but can also turn this off with se=FALSe
+`formula` option lets you specify smoothing formula e.g. y ~ x, y ~ poly(x, 2), y ~ log(x)
+
 
 ### `stat_identity`
 

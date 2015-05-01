@@ -33,4 +33,5 @@ output: html_document
 1. Host on [shinyapps.io](https://www.shinyapps.io)
 
 `runGitHub("user/repo")`
-`runURL`
+
+`runURL()`

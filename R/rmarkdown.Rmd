@@ -46,6 +46,7 @@ Blocks with three backticks or indent 4 spaces or one tab
 `{r [lablel], [options]}`
 
 ### `echo=TRUE`
+
 ### `results='hide'`
 
 ### `cache=TRUE`

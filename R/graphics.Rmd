@@ -1,0 +1,22 @@
+---
+title: "base graphics"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+You will probably want to use ggplot2 or ggvis, but it's useful to know something about base [graphics](http://cran.r-project.org/doc/manuals/r-release/R-intro.html#Graphics).
+
+
+
+
+
+`pairs()`
+
+`coplot()`
+
+
+
+
+
+

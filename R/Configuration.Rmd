@@ -1,0 +1,86 @@
+---
+title: "Configuration"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+
+
+# Variables
+
+`R_PATH`
+`R_PROFILE_USER`
+
+
+
+
+
+
+
+# Configuration
+
+
+`.Rprofile` in user home (or current working directory), which on Windows is `%HOMEPATH%\Documents` and will be sourced on startup.  
+* Can list `option()` configurations.
+* You can create functions `.First()` and `.Last()` and they will be run at start and end of session.
+
+
+---
+
+# Packages
+
+
+
+
+## Packages Paths
+
+`.libPaths()`
+
+`.Library` - string of _default_ library, defaults to R_HOME/library
+`.Library.site` - 
+
+
+## Package Management
+
+`install.packages()`
+
+`installed.packages()` - returns matrix with colnames 'Package, 'LibPath, etc.
+
+`available.packages()`
+
+`update.packages()`
+
+
+## Using Packages
+
+`library()`
+`require()`
+
+
+## Upgrading R
+
+### Reinstall From List
+A see [here](https://stackoverflow.com/questions/1401904/painless-way-to-install-a-new-version-of-r-on-windows) for how to upgrade/transfer packages.
+
+```
+packages <- installed.packages()[,"Package"]
+save(packages, file="Rpackages")
+```
+
+```
+load("Rpackages")
+for (p in setdiff(packages, installed.packages()[,"Package"]))  install.packages(p)
+```
+
+### Copy
+You could also copy packages to a new install directory and run:
+```
+update.packages(checkBuilt=TRUE, ask=FALSE)
+```
+Ask and possibly checkBuilt flags may be optional.
+
+### Other Options
+See `updateR()` in [`installr`](https://github.com/talgalili/installr/) package.  For me it worked to upgrade 3.1 to 3.2 but didn't migrate pacakages like it was supposed to, but that could be because I ran it from RStudio and not RGUI.
+

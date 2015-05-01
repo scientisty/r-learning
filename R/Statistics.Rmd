@@ -7,6 +7,28 @@ output: html_document
 
 
 
+
+
+# Discriminant Analysis
+
+lda() and qda() in MASS
+
+
+
+
+
+
+# Covariance
+var()
+cov() ...symnum()
+cor()
+
+
+
+
+---
+
+
 # Distributions
 
 dnorm(x, mean = 0, sd = 1, log = FALSE)
@@ -30,21 +52,9 @@ stats::nls() - nonlinear least squares
 
 `summary()` give you info about the model you fitted.  Applied to data frames it summarizes each column.
 
-# Covariance
-var()
-cov() ...symnum()
-cor()
-
-
 
 # Principal Component Analysis
 
-
-
-
-# Discriminant Analysis
-
-lda() and qda() in MASS
 
 
 
