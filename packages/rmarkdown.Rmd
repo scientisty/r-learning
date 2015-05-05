@@ -34,11 +34,33 @@ Inline with backticks.  If you start the code segment with r space then it will 
 Blocks with three backticks or indent 4 spaces or one tab
 
 
+
+# Output
+
+## HTML
+
+## PDF
+
+I noticed that if you do not leave a blank line between text and a figure generating code block then the figure will be put on the same line and likely run off the page.  This affected PDF output, but not HTML.
+
+
 ----------------------------------------
 
 # [knitr](http://yihui.name/knitr/)
 
 
+## Comments
+
+I think you can commend within `<!--` and `-->`, unclear if it's just for HTML or also PDF output.
+
+## Global Options
+
+```
+\```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/',
+                      echo=FALSE, warning=FALSE, message=FALSE)
+\```
+```
 
 
 ## Chunk Options
@@ -48,6 +70,8 @@ Blocks with three backticks or indent 4 spaces or one tab
 ### `echo=TRUE`
 
 ### `results='hide'`
+
+`results=asis` can be used with `cat` to print backticks and other special characters
 
 ### `cache=TRUE`
 Do not cache chunks which load libraries needed by uncached chunks.

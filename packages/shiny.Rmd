@@ -19,11 +19,116 @@ output: html_document
     - [Creating Shiny Widgets](http://rmarkdown.rstudio.com/authoring_shiny_widgets.html)
     - [Interactive Documents: Advanced Topics](http://rmarkdown.rstudio.com/authoring_shiny_advanced.html)
 
+
+
+
 # Basics
 
+Interactive Inputs and Outputs.
 
-`server.R` and `ui.R` or combiner server and UI in a single `app.R`
 
+
+When do you have to explicitely wrap in `reactive()`?
+
+
+
+# Shiny Apps
+
+`server.R` (defines `shinyServer()`)and `ui.R` (defines `shinyUI()`) or combiner server and UI in a single `app.R`
+
+
+
+
+
+## `server.R`
+
+minimal = `shinyServer(function(input, output) {})`
+
+
+## `ui.R`
+
+See [tutorial lesson 2](http://shiny.rstudio.com/tutorial/lesson2/)
+
+minimal = `shinyUI(fluidPage())`
+
+
+
+
+# Layouts
+
+> titlePanel and sidebarLayout are the two most popular elements to add to fluidPage. They create a basic Shiny app with a sidebar.  sidebarLayout always takes two arguments:sidebarPanel function output mainPanel function output
+
+> titlePanel and sidebarLayout create a basic layout for your Shiny app, but you can also create more advanced layouts. You can use navbarPage to give your app a multi-page user-interface that includes a navigation bar. Or you can use fluidRow and column to build your layout up from a grid system. 
+
+
+
+tabsetPanel() and navlistPanel()
+
+
+
+# Inputs
+
+The first argument to Input functions is a a string name.  The input is referenced in the Outputs as `input$<name>`
+
+`selectInput()` - widget
+
+`sliderInput()` - widget
+
+`numericInput()`
+
+
+`inputPanel()` - put widgets in here
+
+
+
+# Outputs
+
+Needs `({})` syntax.
+
+
+`renderImage`   images (saved as a link to a source file)
+`renderPlot` 	plots
+`renderPrint` 	any printed output
+`renderTable` 	data frame, matrix, other table like structures
+`renderText` 	character strings
+`renderUI` 	a Shiny tag object or HTML
+
+
+
+# Functions
+
+`shinyApp` looks like it has functions `ui`, `server`, and `options` as paramters.
+`options = list(height = 500)` sets default height of widget when rendered inside document.
+
+
+# UI
+
+`fluidPage()` 
+containing `fluidRow()` which contains `column`, `plotOutput`, etc.
+
+`sidebarLayout()` containing `sidebarPanel()`.
+
+
+
+# R Markdown and Widgets
+
+Inputs and Outputs can also be also be embedded in R Markdown (specify `runtime: shiny`).
+
+They may be used directly in code chunks or a Shiny App may be embedded by calling `shinyApp()` or a function which wraps it, or `shinyAppDir()`.
+
+### `shinyApp()`
+
+Used to create Shiny widgets, you pass `ui` and `server`.
+
+
+When you use `runtime::shiny` then rendering is done as you had explicitely called:
+`rmarkdown::run("myfile.Rmd")`         # Frame not visible
+The other options that seems to underlie when you don't have interactive is:
+`rmarkdown::render("myfile.Rmd")`      # Frame visible
+
+
+Best practices to use `fluidPage` with `responsive = FALSE` so when widget gets smaller its elements shrink instead of wrap.
+Also on `plotOutput` as well as the `renderPlot(..., height=400)` set plot to 400 to leave room for controls.
 
 
 
@@ -31,6 +136,10 @@ output: html_document
 # Deploy
 
 1. Host on [shinyapps.io](https://www.shinyapps.io)
+
+Shiny Apps and interactive documents can both be deployed on shinyapps using R Studio or the `shinyappsdeployApp()` function.
+
+2. Run from R
 
 `runGitHub("user/repo")`
 

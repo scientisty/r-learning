@@ -6,7 +6,14 @@ output: html_document
 ---
 
 
+expand.grid() - 
+combn
 
+
+
+
+
+---
 
 # [Subsetting](http://adv-r.had.co.nz/Subsetting.html)
 

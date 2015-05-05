@@ -126,7 +126,7 @@ Defaults to show standard error but can also turn this off with se=FALSe
 
 
 Can specify summary functions in fun.data, fun.y, fun.ymax, fun.ymin from the Hmisc package:
-mean_se - mean and standard erros
+mean_se - mean and standard errors
 mean_cl_boot(x, ...) - confidence limits with nonparametric bootstrapping method, does not assume normality.
 mean_cl_normal(x, ...) - sample mean and upper and lower Gaussian confidence limits based on t-distribution.
 mean_sdl(x, ...) - mean plus or minus constant time standard deviation, mult=2 is default
@@ -252,6 +252,9 @@ xlim/ylim - convenience functions, drops points
 ---
 
 # Tips and Tricks
+
+
+Check in about setting alpha using `I(1/2)` and see if the `I` is necessary and when.
 
 ### Means and Standard Deviations
 
