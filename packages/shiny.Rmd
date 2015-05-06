@@ -6,6 +6,9 @@ output: html_document
 ---
 
 
+
+
+
 # Links
 
 - [Shiny Homepage](http://shiny.rstudio.com/)
@@ -35,6 +38,7 @@ When do you have to explicitely wrap in `reactive()`?
 # Shiny Apps
 
 `server.R` (defines `shinyServer()`)and `ui.R` (defines `shinyUI()`) or combiner server and UI in a single `app.R`
+You can also use a `global.R` but probably not necessary.
 
 
 
@@ -43,6 +47,9 @@ When do you have to explicitely wrap in `reactive()`?
 ## `server.R`
 
 minimal = `shinyServer(function(input, output) {})`
+
+
+`observe()`?
 
 
 ## `ui.R`
@@ -61,6 +68,8 @@ minimal = `shinyUI(fluidPage())`
 > titlePanel and sidebarLayout create a basic layout for your Shiny app, but you can also create more advanced layouts. You can use navbarPage to give your app a multi-page user-interface that includes a navigation bar. Or you can use fluidRow and column to build your layout up from a grid system. 
 
 
+See the [Layout Guide](http://shiny.rstudio.com/articles/layout-guide.html).
+
 
 tabsetPanel() and navlistPanel()
 
@@ -68,9 +77,12 @@ tabsetPanel() and navlistPanel()
 
 # Inputs
 
+Read about control widgets in [Tutorial 3](http://shiny.rstudio.com/tutorial/lesson3/).
+
 The first argument to Input functions is a a string name.  The input is referenced in the Outputs as `input$<name>`
 
 `selectInput()` - widget
+some ideas for creating selections from a data frame are `unique()` and `setNames()` or `updateSelectInput()`.
 
 `sliderInput()` - widget
 
@@ -115,6 +127,8 @@ containing `fluidRow()` which contains `column`, `plotOutput`, etc.
 Inputs and Outputs can also be also be embedded in R Markdown (specify `runtime: shiny`).
 
 They may be used directly in code chunks or a Shiny App may be embedded by calling `shinyApp()` or a function which wraps it, or `shinyAppDir()`.
+
+The demo for embedding Shiny in R Markdown puts controls in `inputPanel()`
 
 ### `shinyApp()`
 

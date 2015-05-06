@@ -6,8 +6,8 @@ output: html_document
 ---
 
 
-expand.grid() - 
-combn
+`expand.grid()` - 
+`combn`
 
 
 
@@ -18,15 +18,17 @@ combn
 # [Subsetting](http://adv-r.had.co.nz/Subsetting.html)
 
 
-subset
-split
-merge
+`subset()`
+`split()`
+`merge()`
 
 
 Note: these may apply more broadly than data frames.
-cut...
 
-aggregate
+`cut()`
+`split()`
+
+`aggregate()`
 
 
 
@@ -34,12 +36,12 @@ aggregate
 
 Factors can be unordered or [ordered](http://www.cookbook-r.com/Manipulating_data/Changing_the_order_of_levels_of_a_factor/).  Ordered factors impose an inequality among levels.
 
-- factor() - create factor
+- `factor()` - create factor
 
-- ordered() - create ordered factor
+- `ordered()` - create ordered factor
 
-- relevel()
+- `relevel()`
 
-- reorder()
+- `reorder()`
 
 I believe that factors are by definition characters, so if you end up with numeric data as a factor then to convert to simple numeric values you do `as.numeric(as.character(myfactor))` or else you will end up with sequential integers reflecting the factor levels arbitrarily.

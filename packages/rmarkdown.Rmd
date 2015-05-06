@@ -33,7 +33,7 @@ This is oriented toward authoring markdown in RStudio/knitr but will be more gen
 Inline with backticks.  If you start the code segment with r space then it will execute.
 Blocks with three backticks or indent 4 spaces or one tab
 
-
+---
 
 # Output
 
@@ -77,5 +77,9 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/',
 Do not cache chunks which load libraries needed by uncached chunks.
 May need to explicitly set `cache=FALSE` on those chunks.
 
+
+---
+
+# Interactive Shiny
 
 

@@ -1,0 +1,11 @@
+---
+title: "R Tricks"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+
+
+`%in%`
