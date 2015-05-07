@@ -7,6 +7,8 @@ output: html_document
 
 
 
+? come conditionalPanel examples using `===`, I think the condition needs to be in javascript!
+
 
 
 # Links
@@ -113,12 +115,19 @@ Needs `({})` syntax.
 `options = list(height = 500)` sets default height of widget when rendered inside document.
 
 
+
+`isolate()` - can help performance
+
+
 # UI
 
 `fluidPage()` 
 containing `fluidRow()` which contains `column`, `plotOutput`, etc.
 
 `sidebarLayout()` containing `sidebarPanel()`.
+
+
+## Tabbed Layout
 
 
 
