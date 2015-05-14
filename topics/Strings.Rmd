@@ -7,6 +7,21 @@ output: html_document
 
 
 
-cat
 
-paste
+
+Awesome PDF book [Handling and Processing Strings](http://gastonsanchez.com/Handling_and_Processing_Strings_in_R.pdf) in R by Gaston Sanchez
+
+`stringr` library
+
+
+
+### manipulation
+`paste`
+
+
+
+
+### output
+`cat` 
+
+`format`

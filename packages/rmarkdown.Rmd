@@ -9,10 +9,15 @@ output: html_document
 This is oriented toward authoring markdown in RStudio/knitr but will be more general than that.
 
 
+# Flavors of Markdown
+
+
+
+---
 
 # Links
 
-1. [Rmarkdown Homepage](http://rmarkdown.rstudio.com)
+- [Rmarkdown Homepage](http://rmarkdown.rstudio.com)
 
 
 # Relevant Libraries
@@ -51,7 +56,7 @@ I noticed that if you do not leave a blank line between text and a figure genera
 
 ## Comments
 
-I think you can commend within `<!--` and `-->`, unclear if it's just for HTML or also PDF output.
+I think you can commend within `<!--` and `-->`, unclear if it's just for HTML or also PDF output.  When compiling for html surrounding an
 
 ## Global Options
 

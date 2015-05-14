@@ -6,31 +6,56 @@ output: html_document
 ---
 
 
+# Tasks
+
+### Reading Shapefiles
+
+shapefile package and maptools
+
+### AVIRIS
+
+
+The `ripa` package can be used to read aviris files I think.
+
+
+# Packages
 
 ## Geospatial Data
 
-### sp!
+__`sp`__ - defines spatial data types
 
-### rgdal
+rgdal
 
-### maptools
+maptools
 
-### shapefiles
-
-
-maps
+shapefiles
 
 mapproj
 
+spatstat
 
----
+
+## Mapping
+
+- `maps`
+- `ggmap`
+- `leafletR`
+- `rworldmap`
 
 
-# Raster Processing
 
-## `raster` package
+## Raster Processing
 
-## `ripa`
-Image processing package that can work with AVIRS!
+`raster` package
+
+__`ripa`__
+Image processing package that can work with AVIRIS!
 
 EBImage?
+
+
+# Links
+
+
+
+

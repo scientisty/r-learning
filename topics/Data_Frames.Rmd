@@ -9,7 +9,7 @@ output: html_document
 `expand.grid()` - 
 `combn`
 
-
+`table` - contingency table
 
 
 
@@ -28,7 +28,10 @@ Note: these may apply more broadly than data frames.
 `cut()`
 `split()`
 
+`by`
 `aggregate()`
+
+`bin()`
 
 
 

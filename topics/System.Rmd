@@ -1,0 +1,32 @@
+---
+title: "System"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+
+### Loading Files
+
+`read.table()` and `scan()` ... also support gz (do you need to wrap read.table(gzfile())?)
+
+
+`file()`/`gzfile()`/`url`/`open()`/`close()` - _connections_
+
+`data.table::fread()`
+
+
+## System Interaction
+
+### Run Commands
+
+`system("command")` - run command line 
+
+### Filesystem
+
+`getwd()`/`setwd()`
+`dir()`
+
+`file.info()` - has attributes like `$size`...
+

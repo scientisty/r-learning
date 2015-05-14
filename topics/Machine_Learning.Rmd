@@ -7,8 +7,27 @@ output: html_document
 
 
 
+# Packages
+
+- `class` - for classification
 
 
-# randomForest
+- `randomForest`
+- `randomForestSRC` - an improved and optimized version
 
+
+
+
+# `randomForest`
+
+Usage Links
+- (http://blog.yhathq.com/posts/10-R-packages-I-wish-I-knew-about-earlier.html)
+
+
+
+
+
+# Timeseries
+
+`forecast` - timeseries
 

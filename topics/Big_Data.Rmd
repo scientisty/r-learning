@@ -1,0 +1,100 @@
+---
+title: "Big Data"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+So how do we make floats 32-bit and not 64?
+
+
+# Links
+A cool [mindmap of packages](https://www.xmind.net/m/LKF2/) (there is also one for [Python](https://www.xmind.net/m/WvfC/)).
+
+[CRAN HPC Task](http://cran.r-project.org/web/views/HighPerformanceComputing.html)
+
+Here are some [tips](http://blog.revolutionanalytics.com/2013/12/tips-on-computing-with-big-data-in-r.html) for HPC in R.
+
+Hints for [reading](http://cbio.ensmp.fr/~thocking/reading-large-text-files-into-R.html) large tables, and more [hints](http://theodi.org/blog/fig-data-11-tips-how-handle-big-data-r-and-1-bad-pun).
+
+[Benchmarks](https://statcompute.wordpress.com/2014/02/11/efficiency-of-importing-large-csv-files-in-r/) of different methods.
+
+
+# Tips
+
+1. Use [memory](http://adv-r.had.co.nz/memory.html) efficiently.
+
+2. If pushing it with naive approaches save to RData file to reduce future loading time.
+
+3. Avoid copies and `rm()` unneeded stuff.  Use [object.size()](https://stackoverflow.com/questions/1395270/determining-memory-usage-of-objects) to get memory usage.
+
+3. gz?
+
+
+
+
+
+
+# Packages
+
+
+
+
+- [`ff`](http://ff.r-forge.r-project.org/) - "Flat-File Library" 
+    - access to large datasets that don't fit in memory
+    - `ffbase` - statistical functions
+
+
+
+- `bigmemory`
+    - Also supports biglm stuff.
+    - `biganalytics`
+    - `bigtabulate`
+    - `synchronicity`
+    - `bigalgebra`
+    
+    
+- `bigdata` - may be a little dated and single purposed?
+
+Revolution Analytics:
+- `scaleR` - works with out-of-memory data either on disk or database
+- `RevoScaleR` - chunking on steriods
+- `DistributedR`
+
+
+### Parallel
+
+- [pbdR project](https://rbigdata.github.io/)
+- `RHadoop`
+
+- `foreach`
+
+### Visualization
+
+- [`bigvis`](https://github.com/hadley/bigvis)
+
+
+### Algorithms
+
+
+
+- `biglm` - linear models, but I think can also access files without loading (chunk).
+- `biglars` - least angle regression, works with ff.
+
+- `bigrf` - random forests
+- `PivotalR` - machine learning, connects to PostgreSQL.
+
+### Database
+
+- `sqldf`
+
+
+### Profiling
+`utils::Rprof()` - general profiling
+`tracemem()`
+
+# Other
+
+Use C with `Rcpp`,
+
+Call R from Python with the `pyper` and `rpy2` modules!  Call Python from R with `rPython`.

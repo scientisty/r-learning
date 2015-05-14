@@ -1,0 +1,11 @@
+---
+title: "Visualization"
+author: "Spencer Mathews"
+date: "May 12, 2015"
+output: html_document
+---
+
+
+
+### `rgl`
+Problems downloading from CRAN on OSX!  Why?  How to fix?

@@ -1,0 +1,40 @@
+---
+title: "Packages"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+CRAN is nice
+
+
+
+Vignettes
+
+
+
+
+`demo()` - some or all packages?
+
+
+
+
+# Useful Packages
+
+## Key Packages
+
+- `dplyr`
+- `tidyr`
+- `ggplot2`
+
+
+
+
+## Geospatial
+
+
+## Networks
+`network`
+`statnet`
+
+`networkD3`

@@ -59,7 +59,8 @@ Grouping a data frame by the value of a specified variable allows for the
 
 ### `group_by()`
 
-Grouping variable is stored in `vars` attribute!
+Call `groups()` to query the grouping variables, and `ungroup()` is obvious.
+Grouping variable is stored in `vars` attribute.
 
 ### `summarise_each()`
 

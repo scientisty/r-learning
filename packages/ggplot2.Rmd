@@ -367,4 +367,8 @@ melt_samples %>% ggplot(aes(x=value)) + stat_density(aes(fill=grouping))
 melt_samples %>% ggplot(aes(x=value)) + stat_density(aes(fill=grouping), position='fill')
 ```
 
+---
 
+# Extensions
+
+`ggplot::plotmatrix()` is junk and Hadley recommends `ggpairs()` from `GGally`.

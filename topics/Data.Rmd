@@ -7,4 +7,21 @@ output: html_document
 
 
 
-`load`/`save`
+
+`rbind()`
+`cbind()`
+
+
+
+
+
+
+### Saving objects to disk
+
+#### Saving
+`save()`
+
+#### Restoring
+`load()`
+`attach()`
+`data()`

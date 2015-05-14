@@ -6,19 +6,36 @@ output: html_document
 ---
 
 
-
+`distinct` / `duplicated?`
 
 # Interactive Sessions
 
 `sessionInfo()`
 
 
+---
+
+# Data Types
+
+list, aarray
+vector
+matrix
+data frame
+...
+
+
 
 # Objets and stuff
+
+`typeof()`
+`class()`
+
 
 ### attributes
 attributes() - all attributes
 attr() - individually
+
+Assign `NULL` to attributes to remove them.
 
 
 
@@ -46,7 +63,49 @@ Call by value only!?
 
 
 
+# Indexing
+
+`[[]]`
 
 
-# Assertions
+---
+
+### Comparisons
+
+`identical` is way too strict
+`all.equal`
+
+which !=
+
+See `compare::compare()`.
+
+
+
+
+
+
+[Comparing Data Frames](http://www.cookbook-r.com/Manipulating_data/Comparing_data_frames/)
+
+### Assertions
 `stopifnot()` or see [assertthat](https://github.com/hadley/assertthat) package.
+
+
+
+## Classes
+S3 and S4 classes
+
+# Topics
+
+### Set Operations
+
+1. `union`
+2. `intersect`
+3. `setdiff`
+4. `setequal`
+5. `is.element`
+
+- `%in%`
+
+
+### Working with time/date
+- `libridate`
