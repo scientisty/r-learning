@@ -81,6 +81,9 @@ Species functions including `n()`...
 ## `join_*`
 ~`base::merge`
 
+It seems that join operations lose any attributes added by the user!!!
+
+
 [Hadley:Two-table verbs](https://rpubs.com/hadley/45044)
 
 If matches aren't exact generates Cartesian product.
@@ -89,9 +92,9 @@ If matches aren't exact generates Cartesian product.
 
 ### `inner_join(x, y)` only includes observations that match in both x and y.
 
-### `left_join(x, y)` includes all observations in x, regardless of whether they match or not. This is the most commonly used join because it ensures that you don’t lose observations from your primary table.
+### `left_join(x, y)` includes all observations in x, regardless of whether they match or not. This is the most commonly used join because it ensures that you don't lose observations from your primary table.
 
-### `right_join(x, y)` includes all obserations in y. It’s equivalent to left_join(y, x), but the columns will be ordered differently.
+### `right_join(x, y)` includes all obserations in y. It's equivalent to left_join(y, x), but the columns will be ordered differently.
 
 ### `full_join()` includes all observations from x and y.
 
@@ -100,7 +103,7 @@ If matches aren't exact generates Cartesian product.
 These only ever remove observations.
 
 ### `semi_join(x, y)` return all observations in x that have a match in y.
-### `anti_join(x, y)` return all observaitons in x that don’t have a match in y.
+### `anti_join(x, y)` return all observaitons in x that don't have a match in y.
 
 ### `bind_rows()/bind_cols()`
 ~rbind/cbind?!
