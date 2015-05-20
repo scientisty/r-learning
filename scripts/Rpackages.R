@@ -24,14 +24,13 @@ install_from_package_list <- function(file_name = "Rpackages.Rdata") {
   # Install packages from "packages" object which are not currently installed
   #
   load(file_name, verbose=TRUE)
-  stopifnot("packages")
   for (p in setdiff(packages, installed.packages()[,"Package"]))  install.packages(p)
 }
 
 
 # Package Tools ----------------------------------
 
-compare_packages <- function(file_name) {
+compare_packages <- function(file_name = 'Rpackages.Rdata') {
   # Compare packages in file to those installed
   #
   load(file_name)
@@ -47,23 +46,27 @@ compare_packages <- function(file_name) {
 }
 
 
-merge_package_lists <- function(file_name_A, file_name_B='Rpackages.Rdata', save_file=TRUE) {
+merge_package_lists <- function(file_name_A=NULL, file_name_B='Rpackages.Rdata', save_file=TRUE) {
   # Add packages from first list into second list
   #
   # There may be a clever way to do this by specifying the environment to load into...
+  # If file_name_A not given then get installed packages
   #
-  load(file_name_A)
-  packages_A <- packages
+  if(is.null(file_name_A)) {
+    packages_A <- installed.packages()[,"Package"]
+  } else {
+    load(file_name_A)
+    packages_A <- packages
+  }
   load(file_name_B)
   packages_B <- packages
   
   new_packages <- setdiff(packages_A, packages_B)
   cat("\n\nPackages to be merged:\n----------------------------------------\n", new_packages, "\n\n")
   combined_packages <- c(packages_B, new_packages)
-  combined_packages <- sort(combined_packages)
+  packages <- sort(combined_packages)
   
-  packages = combined_packages
   if(save_file) save(packages, file=file_name_B)
-  return(combined_packages)
+  return(packages)
 }
 
