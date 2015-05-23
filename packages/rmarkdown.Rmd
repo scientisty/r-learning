@@ -35,16 +35,87 @@ This is oriented toward authoring markdown in RStudio/knitr but will be more gen
 
 
 ### Code
-Inline with backticks.  If you start the code segment with r space then it will execute.
-Blocks with three backticks or indent 4 spaces or one tab
+Inline with backticks.  If you start the code segment with r space then it will execute (three backticks appears to be usable inline? but don't do it)
+Blocks with three backticks or indent 4 spaces or one tab.  Putting `{r}` after the three backticks makes the code executable.
+
+At least in RStudio the paragraphs are placed in `<p></p>` tags, and default rendering of inline code is with `<code><\code>` and render with grey background.  Executed inline code does not seem to be output, only the result.  Code blocks are wrapped in `<pre><code><\code><\code>` tags and have white backgrounds, and executable code chunks are rendered `<pre class="r"><code><\code><\code>` and have grey backgrounds.
+
+Here are some knitr examples:
+
+```
+example of simple code block, it is wrapped in pre and code without a class specifier
+```
+
+```{r}
+# evaluated code block is grey, and is wrapped in pre and code tags with class="r" specified in pre
+# the output it generates is white and is also wrapped in pre and code tags but does not have class="r"
+getwd()
+```
+
+
+```{r, eval=FALSE}
+# unevaluated R code block has grey background and while this is has class="r" the evaluated does not have a class specified
+getwd()
+```
+
+Here are some examples of including the `pre` and `code` HTML directly:
+
+Backticks can be included as `&#96;&#96;&#96;`  It seems that newlines are treated as spaces in `<code>` blocks that are not within `<pre>`.
+
+Including this code:
+
+<pre><code>&#60;pre class="r"&#62;&#60;code&#62;&amp#96;&amp#96;&amp#96;{r}
+R CODE
+&amp#96;&amp#96;&amp#96;
+&#60;/code&#62;&#60;/pre&#62;
+</code></pre>
+
+Gives this output:
+
+<pre class="r"><code>&#96;&#96;&#96;{r}
+R CODE
+&#96;&#96;&#96;
+</code></pre>
+
+Experiments:
+
+<pre>&#60;pre&#62;
+# the pre tag without a class specifier has white background even without code tag
+</pre>
+
+<pre><code>&#60;pre&#62;&#60;code&#62;
+# without a class specifier wrapping in pre and code tags yields a white background
+</code></pre>
+
+<pre class="r">&#60;pre class="r"&#62;
+# the pre tag with class="r" but no code tag still has grey background
+# the code tag seems redundant with pre, except to tell web crawlers that it's code
+</pre>
+
+
+<pre class="r"><code>&#60;pre class="r"&#62;&#60;code&#62;
+# the rmarkdown rdocs include backticks in code blocks with explicite pre and code tags
+# and with class="markdown", here class="r" but in both cases the output is grey
+# but when class is specified and code tag used looks like you get syntax highlighting!
+</code></pre>
+
+
+
+
+
+<code>&#60;code&#62;
+</code>
+
+
+
 
 ---
 
-# Output
+## Output
 
-## HTML
+### HTML
 
-## PDF
+### PDF
 
 I noticed that if you do not leave a blank line between text and a figure generating code block then the figure will be put on the same line and likely run off the page.  This affected PDF output, but not HTML.
 
@@ -53,12 +124,25 @@ I noticed that if you do not leave a blank line between text and a figure genera
 
 # [knitr](http://yihui.name/knitr/)
 
+- [knitr in a nutshell](http://kbroman.org/knitr_knutshell)
+
 
 ## Comments
 
 I think you can commend within `<!--` and `-->`, unclear if it's just for HTML or also PDF output.  When compiling for html surrounding an
 
-## Global Options
+## Options
+
+### [Knitr Objects](http://yihui.name/knitr/objects)
+
+- `opts_chunk` and `opts_current`: manages options for code chunks
+- `opts_knit`: manages options for the knitr package
+- `knit_hooks`: manages hook functions
+- `knit_patterns`: manages regular expressions to extract R code from the input document
+- `knit_engines`: functions to deal with other languages
+
+
+### Global Options
 
 ```
 \```{r global_options, include=FALSE}
@@ -67,20 +151,51 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/',
 \```
 ```
 
+### Chunks
 
-## Chunk Options
+chunk labels?
+
+### Chunk Options
 
 `{r [lablel], [options]}`
 
-### `echo=TRUE`
 
-### `results='hide'`
+#### `fig.width=7/fig.height=5`
+
+in inches (5x7 is default), though perhaps px or other can be specified.
+an also specify globally either in YAML header as:
+
+```
+output:
+  html_document:
+    fig_width: 6
+    fig_height: 4
+```
+
+or as
+
+```
+{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width7, fig.height=5)
+```
+
+#### `eval=FALSE`
+whether or not to evaluate chunk, can also selectively execute lines
+
+#### `echo=TRUE`
+
+#### `results='hide'`
 
 `results=asis` can be used with `cat` to print backticks and other special characters
 
-### `cache=TRUE`
+#### `warning=TRUE`/`error=TRUE`/`message=TRUE`
+
+#### `cache=TRUE`
 Do not cache chunks which load libraries needed by uncached chunks.
 May need to explicitly set `cache=FALSE` on those chunks.
+
+#### `include=FALSE`
+
 
 
 ---
