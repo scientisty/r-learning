@@ -1,0 +1,19 @@
+---
+title: "Forumulas"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+CONSIDER ADDING THIS TO THE STATS FILE
+
+
+`stats::formula()`
+
+
+
+---
+
+# Misc
+
+`I()` as is

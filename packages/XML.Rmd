@@ -1,0 +1,50 @@
+---
+title: "XML Packages"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+
+
+
+
+### Reading XML
+
+`xmlParse()` returns C-level "XMLInternalDocument" by default but if `useInternalNodes = FALSE` then returns R-level "XMLDocument" which is hierarchy of lists.  `xmlTreeParse()` is a convenient wrapper to do this.  `xmlParse` only works on well formed XML documents.
+
+You can parse HTML using xmlParse with `isHTML=TRUE`, or the equivalent `htmlParse()` which yields "HTMLInternalDocument", or with `useInternalNodes = FALSE` yields "XMLDocumentContent".
+
+
+## Tree Manipulation
+
+- `xmlRoot()`
+- `xmlChildren()`
+
+
+##Node Manipulation
+
+- `xmlName()` name of the node
+- `xmlSize()` number of subnodes
+- `xmlAttrs()` named character vector of all attributes
+- `xmlGetAttr()` value of a single attribute
+- `xmlValue()` contents of a leaf node
+- `xmlParent()` name of parent node
+- `xmlAncestors()` name of ancestor nodes
+- `getSibling()` siblings to the right or to the left
+- `xmlNamespace()` the namespace (if there’s one)
+
+
+# ...
+
+`xmlApply()`
+`xmlSApply()`
+
+`getNodeSet()` uses XPath to query 
+
+`xpathApply()`/`xpathSApply()`
+
+
+`readHTMLTable()`...
+
