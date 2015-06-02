@@ -25,6 +25,7 @@ output: html_document
     - [Interactive Documents: Advanced Topics](http://rmarkdown.rstudio.com/authoring_shiny_advanced.html)
 
 
+https://shinydata.wordpress.com/2015/02/02/a-few-things-i-learned-about-shiny-and-reactive-programming/
 
 
 # Basics
@@ -51,7 +52,7 @@ You can also use a `global.R` but probably not necessary.
 minimal = `shinyServer(function(input, output) {})`
 
 
-`observe()`?
+`observe()`? `isolate()` in observe?
 
 
 ## `ui.R`
@@ -100,12 +101,16 @@ some ideas for creating selections from a data frame are `unique()` and `setName
 Needs `({})` syntax.
 
 
-`renderImage`   images (saved as a link to a source file)
-`renderPlot` 	plots
-`renderPrint` 	any printed output
-`renderTable` 	data frame, matrix, other table like structures
-`renderText` 	character strings
-`renderUI` 	a Shiny tag object or HTML
+- `renderImage`   images (saved as a link to a source file)
+- `renderPlot` 	plots
+- `renderPrint` 	any printed output
+- `renderTable` 	data frame, matrix, other table like structures
+- `renderText` 	character strings
+- `renderUI` 	a Shiny tag object or HTML
+
+`plotOutput`??
+
+For reactive interfaces use `renderUI` (... use for reactive interfaces)
 
 
 

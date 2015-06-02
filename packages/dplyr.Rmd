@@ -6,7 +6,7 @@ output: html_document
 ---
 
 
-Dplyr lets you omit quotes when referencing stuff, but there are functions which _end with underscores_ which take quoted strings and are suitable for using programmtically. 
+Dplyr lets you omit quotes when referencing stuff, but there are functions which _end with underscores_ which take quoted strings and are suitable for using programmtically (may be useful to use `quote()`, `""`, or `~`)
 
 Do not use meaningful row names with dplyr since they are not guaranteed to be preserved.
 
@@ -27,6 +27,8 @@ vs?
 
 ### `filter()`
 
+Many dplyr functions conserve attributes, but filter seems to lose them.
+
 ### `arrange()`
 
 ### `distinct()`
@@ -35,7 +37,7 @@ commonly used as distinct(select(...)) to find uniqe
 
 
 
-# Working With COlumns
+# Working With Columns
 
 
 ### `select()/rename()`
@@ -61,6 +63,10 @@ Grouping a data frame by the value of a specified variable allows for the
 
 Call `groups()` to query the grouping variables, and `ungroup()` is obvious.
 Grouping variable is stored in `vars` attribute.
+
+
+`.dots`... `as.symbol/as.name`
+
 
 ### `summarise_each()`
 
@@ -88,22 +94,25 @@ It seems that join operations lose any attributes added by the user!!!
 
 If matches aren't exact generates Cartesian product.
 
-## matching joins
+### matching joins
 
-### `inner_join(x, y)` only includes observations that match in both x and y.
+#### `inner_join(x, y)` only includes observations that match in both x and y.
 
-### `left_join(x, y)` includes all observations in x, regardless of whether they match or not. This is the most commonly used join because it ensures that you don't lose observations from your primary table.
+#### `full_join()` includes all observations from x and y.
 
-### `right_join(x, y)` includes all obserations in y. It's equivalent to left_join(y, x), but the columns will be ordered differently.
+#### `left_join(x, y)` includes all observations in x, regardless of whether they match or not. This is the most commonly used join because it ensures that you don't lose observations from your primary table.
 
-### `full_join()` includes all observations from x and y.
+#### `right_join(x, y)` includes all obserations in y. It's equivalent to left_join(y, x), but the columns will be ordered differently.
 
-## filtering joins
+
+### filtering joins
 
 These only ever remove observations.
 
-### `semi_join(x, y)` return all observations in x that have a match in y.
-### `anti_join(x, y)` return all observaitons in x that don't have a match in y.
+#### `semi_join(x, y)` return all observations in x that have a match in y.
+Like a left_join but nothing from b gets in a.
+
+#### `anti_join(x, y)` return all observaitons in x that don't have a match in y.
 
 ### `bind_rows()/bind_cols()`
 ~rbind/cbind?!
@@ -114,6 +123,24 @@ bind_cols(x, ...)
 
 combine(x, ...) ~ c() and unlist()
 
+
+---
+
+# `lazyeval`
+
+[nse](http://cran.r-project.org/web/packages/dplyr/vignettes/nse.html)! non standar evaluation
+
+Using `interp`, quote, eval I was able to feed variables into facet_grid.
+
+Also see [this](http://adv-r.had.co.nz/Computing-on-the-language.html) and [this](http://adv-r.had.co.nz/Expressions.html).
+
+
+---
+
+
+# `magrittr`
+
+`%>%`
 
 
 

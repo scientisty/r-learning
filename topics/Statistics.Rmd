@@ -9,11 +9,9 @@ output: html_document
 
 
 
-# Discriminant Analysis
+# Links
 
-lda() and qda() in MASS
-
-
+- Quick-R has sections on [Basic Statistics](http://www.statmethods.net/stats) and [Advanced Statistics](http://www.statmethods.net/advstats)
 
 
 
@@ -29,7 +27,25 @@ cor()
 ---
 
 
-# Distributions
+## Model Formulae
+
+
+
+
+---
+
+
+# `stats` package
+
+`t.test()`
+
+
+## Regressions
+
+`poly()`/`polym()`
+
+
+## Distributions
 
 dnorm(x, mean = 0, sd = 1, log = FALSE)
 pnorm(q, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
@@ -37,38 +53,37 @@ qnorm(p, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
 rnorm(n, mean = 0, sd = 1)
 
 
-# Model Formulae
+## Model Fitting
+
+- `lm()` - linear model
+- `glm()` - generalized linear model
+
+- `nls()` - nonlinear least squares
 
 
-
-# Model Fitting
-
-lm() - linear model
-glm() - generalized linear model
-
-ls()
-stats::nls() - nonlinear least squares
+`base::summary()` give you info about the model you fitted.  Applied to data frames it summarizes each column.
 
 
-`summary()` give you info about the model you fitted.  Applied to data frames it summarizes each column.
-
-
-# Principal Component Analysis
-
-
-
-
-
-# Clustering
+## Clustering
 
 dist() - distance matrix
 hclust() - has print(), plot(), identify functions
 
 
-# stats Package
+## Principal Component Analysis
 
-poly()/polym()
+- `princomp()`
 
+
+---
+
+
+# `MASS` packages
+
+## Discriminant Analysis
+
+- `lda()`
+- `qda()`
 
 
 

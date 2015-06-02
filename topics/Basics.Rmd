@@ -6,6 +6,10 @@ output: html_document
 ---
 
 
+http://cran.r-project.org/doc/manuals/R-lang.html
+
+
+
 `distinct` / `duplicated?`
 
 # Interactive Sessions
@@ -17,11 +21,40 @@ output: html_document
 
 # Data Types
 
-list, aarray
-vector
+
+http://digitheadslabnotebook.blogspot.com/2010/01/r-type-system.html
+
+
+- numeric
+- character
+
+
+list
+
+vector (generic vector = list?)
+
 matrix
+
+array
+
+> An array in R can have one, two or more dimensions. It is simply a vector which is stored with additional attributes giving the dimensions (attribute "dim") and optionally names for those dimensions (attribute "dimnames").
+>
+> A two-dimensional array is the same thing as a matrix.
+
 data frame
 ...
+
+
+### Some Functions
+
+`list()`
+`unlist`
+
+- `c()` : more generic than append and can concatenate vectors or lists
+- `append` : wraps c and allows for positional insertion with `after=` parameter.
+
+Combine lists? c or append or what?
+
 
 
 
@@ -29,6 +62,13 @@ data frame
 
 `typeof()`
 `class()`
+`mode()`
+
+`str()`
+
+`print()`
+
+`is.atomic()`
 
 
 ### attributes
@@ -80,19 +120,50 @@ which !=
 See `compare::compare()`.
 
 
-
-
-
-
 [Comparing Data Frames](http://www.cookbook-r.com/Manipulating_data/Comparing_data_frames/)
 
+
+### Sorting
+
+`sort()` : sorting vectors or factors, can specify `decreasing=TRUE` to reverse.
+
+`order()` : can sort along more than one variable (e.g. for tie breaking and data frames), see also `sort.list`.
+
+
+`is.ordered()`
+
+
 ### Assertions
+
 `stopifnot()` or see [assertthat](https://github.com/hadley/assertthat) package.
 
 
-
-## Classes
+### Classes
 S3 and S4 classes
+
+
+### [Environments](http://cran.r-project.org/doc/manuals/R-lang.html#Environment-objects)
+
+`ls()`
+`rm()`
+`objects()`
+
+
+
+`new.env()`
+
+`$`
+
+`search()`
+1. `globalenv()`
+2. `environment()`
+`parent.env()`
+
+Links:
+http://adv-r.had.co.nz/Environments.html
+http://digitheadslabnotebook.blogspot.com/2011/06/environments-in-r.html
+
+---
 
 # Topics
 
@@ -106,6 +177,18 @@ S3 and S4 classes
 
 - `%in%`
 
+
+### Repetition and Permutation
+
+---
+
+# Control Flow
+
+`if` `else`
+
+
+
+---
 
 ### Working with time/date
 - `libridate`

@@ -7,15 +7,62 @@ output: html_document
 
 
 
+##Files
+
+### Links
+
+[Data input and output](http://www.cookbook-r.com/Data_input_and_output/index.html)
+
+
 ### Loading Files
+
+
+- `read.table()`
+- `scan()` : Read data into a vector or list from the console or file.
 
 `read.table()` and `scan()` ... also support gz (do you need to wrap read.table(gzfile())?)
 
 
 `file()`/`gzfile()`/`url`/`open()`/`close()` - _connections_
+Also for connections: `readLines()` (works for http too), `writeLines()`, `readBin()`, `scan`
 
 `data.table::fread()`
 
+`file.choose()` : launches a GUI chooser!
+
+
+
+### Saving Files
+
+
+- `write()` : a wrapper for cat()
+- `write.table()`
+    -`write.csv()`
+
+
+`dump()` ?
+
+
+### RData Files
+
+
+'load()`
+
+'data()'
+
+'attach()'
+
+`save()` : "save writes an external representation of R objects to the specified file. The objects can be read back from the file at a later date by using the function load or attach (or data in some cases)."
+
+`saveRDS()` ! save single object and you can restore directly to a named object!
+
+
+### Net
+
+`download.file()`
+
+
+---
 
 ## System Interaction
 
@@ -27,6 +74,9 @@ output: html_document
 
 `getwd()`/`setwd()`
 `dir()`
+
+
+There are many `file.*` commands for interacting with the file system.
 
 `file.info()` - has attributes like `$size`...
 

@@ -13,7 +13,22 @@ output: html_document
 
 
 
+
+- `with()`
+- `by()` applies to each level of factor
+
+
 ---
+
+
+
+# Selecting Data
+
+- By name: `my_dataframe$column_name` or `my_dataframe['column_name']`
+- By index: `my_dataframe[index]` or range `my_dataframe[index1:index2]` 
+- Note: Matrix notation (i.e. with comma) `my_dataframe[, 'column_name']` doesn't return data frame for single column!
+
+
 
 # [Subsetting](http://adv-r.had.co.nz/Subsetting.html)
 

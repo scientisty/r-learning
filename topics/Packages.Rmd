@@ -13,13 +13,17 @@ Vignettes
 
 
 
-
 `demo()` - some or all packages?
 
 
+# Links
+
+- [R Packages (Hadley)](http://r-pkgs.had.co.nz)
 
 
 # Useful Packages
+
+- [Awesome R](https://github.com/qinwf/awesome-R) list of packages
 
 ## Key Packages
 
@@ -27,6 +31,14 @@ Vignettes
 - `tidyr`
 - `ggplot2`
 
+
+## Plotting
+
+- `lattice` http://lmdvr.r-forge.r-project.org/figures/figures.html
+- `grid`
+- `scatterplot3d`
+- `plot3D`
+- `rgl`
 
 
 

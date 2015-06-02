@@ -5,12 +5,15 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
-```{r, echo=FALSE}
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=5, fig.height=3, dev=c("png","jpeg"), fig.path='Figs/')
+```
+
+```{r, echo=FALSE, message=FALSE}
 library(ggplot2)
 library(dplyr)
 library(tidyr)
 ```
-
 
 
 You call qplot or ggplot and then add _layers_ with `+`.
@@ -203,10 +206,14 @@ You can `weight` by another variable.
 Show actual sums instead of proportions by `size = ..n..`, which might imply grouping?
 
 
-# Scales
+# [Scales](https://github.com/hadley/ggplot2/wiki/scales)
 
 `scale_alpha()` = `scale_alpha_continuous`
 `scale_alpha_discrete()`
+
+
+
+`scale_x_*`
 
 
 # Position
@@ -266,10 +273,50 @@ Turning off legends can be done with `guides(<color|fill|linetype|shape|etc>=FAL
 4. `scale_size[_continous/discrete]`
 3. etc.
 
+Read more about [legends](https://github.com/hadley/ggplot2/wiki/Legend-Attributes)
+
 
 ---
 
-`theme` - for lots of stuff affecting looks
+
+# [Axes](http://www.cookbook-r.com/Graphs/Axes_(ggplot2))
+
+You work with axes through `scale_x/y_discrete/continuous` or through `theme()`.  Though you can suppress ticks, labels, and gridlines through both the scale functions are for more numeric customization while theme is more aesthetic (e.g. size, rotation, etc.).
+
+
+Work with axis tick marks, labels, and gridlines all together with `scale_x_discrete` (see paramters: `limit` to reorder, `breaks` is like limit but will erase breaks at other points , `labels`).
+Setting `theme(axis.ticks = element_blank(), axis.text.y = element_blank())` will keep the gridlines only, which can be configured by setting `panel.grid.minor`, `panel.grid.minor.x`, `panel.grid.minor.y` in `theme()`.
+
+`breaks` can set `number_of_ticks()` or specify explicitely.
+
+
+- `scale_x_discrete(name, breaks, labels, limits)`
+    - `breaks=NULL` will suppress tickmarks and gridlines and I think labels.
+- `scale_x_continuous(name, breaks, labels, limits, trans)` can set breaks with `seq`...
+
+
+See [here](https://github.com/hadley/ggplot2/wiki/Axis-Attributes) for a description of all the things you can do with `theme()`
+
+- `axis.text.x (text)`/`axis.text.y (text)` - axis tick labels!
+- `axis.title.x (text)`
+- `axis.title.y (text)`
+- `axis.line (segment)`
+- `axis.ticks (segment)` - tick marks!
+- `axis.ticks.length (unit)`
+- `axis.ticks.margin (unit)`
+
+Call [`theme()`](http://docs.ggplot2.org/dev/vignettes/themes.html) to configure axis stuff, among other things.  Also [`opts()`](https://github.com/hadley/ggplot2/wiki/opts%28%29-theme%28%29-List), which is legacy.
+
+
+`coord_flip()` will swap x and y axes.
+
+# Themes
+
+`theme_grey()` is default.
+
+
+### Panel
+
 
 
 ---
@@ -277,8 +324,11 @@ Turning off legends can be done with `guides(<color|fill|linetype|shape|etc>=FAL
 # Gotchas
 If outputting to file must use print(), eg. print(qlot(...))
 
-`coord_cartesian(xlim=, ylim=)` - does not drop points
-xlim/ylim - convenience functions, drops points
+- `coord_cartesian(xlim=, ylim=)` - does not drop points
+- `xlim`/`ylim` - convenience functions, drops points.  Can also `scale_y_continuous(limit=c(0,1))` which will override any x/ylim.
+- Also see `expand_limits()` which can expand the range of an axis (cannot shrink)
+
+
 
 
 
@@ -295,16 +345,18 @@ The `stat_summary` layer can be used to plot an envelope around the mean.  It no
 
 
 1. smooth
+
 ```
 ggplot(a, aes(x=x,y=y)) + geom_point() +
   stat_summary(fun.data = 'mean_sdl', mult = 1, geom = 'smooth')
 ```
 
 2. ribbon
+
 ```
 ggplot(a, aes(x=x,y=y)) + 
-  stat_summary(fun.y = 'mean', colour = 'blue', geom = 'line') +
-  stat_summary(fun.data = 'mean_sdl', geom = 'ribbon', alpha = 0.2)
+  stat_summary(fun.data = 'mean_sdl', geom = 'ribbon', alpha = 0.2) +
+  stat_summary(fun.y = 'mean', colour = 'blue', geom = 'line')
 ```
 
 
@@ -329,7 +381,7 @@ ggplot(nmmaps, aes(date, o3run))+geom_ribbon(aes(ymin=mino3, ymax=maxo3), fill="
 
 
 
-
+---
 
 # Examples and Use Cases
 
@@ -366,6 +418,9 @@ melt_samples %>% ggplot(aes(x=value)) + stat_density(aes(fill=grouping))
 ```{r}
 melt_samples %>% ggplot(aes(x=value)) + stat_density(aes(fill=grouping), position='fill')
 ```
+
+
+For working in 2d see `geom_bin2d`/`stat_bin2d`, `geom_density2d`/`stab_density2d`, `geom_hex`?/`stat_binhex` and maybe `scale_color_gradient`.  Also `stat_summary_hex` and `stat_summary2d`.
 
 ---
 

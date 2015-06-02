@@ -9,7 +9,7 @@ So how do we make floats 32-bit and not 64?
 
 
 # Links
-A cool [mindmap of packages](https://www.xmind.net/m/LKF2/) (there is also one for [Python](https://www.xmind.net/m/WvfC/)).
+A cool [mindmap of R packages for Big Data](https://www.xmind.net/m/LKF2/) (there is also one for [Python](https://www.xmind.net/m/WvfC/)).
 
 [CRAN HPC Task](http://cran.r-project.org/web/views/HighPerformanceComputing.html)
 
@@ -31,20 +31,14 @@ Hints for [reading](http://cbio.ensmp.fr/~thocking/reading-large-text-files-into
 3. gz?
 
 
-
-
-
+---
 
 # Packages
-
-
 
 
 - [`ff`](http://ff.r-forge.r-project.org/) - "Flat-File Library" 
     - access to large datasets that don't fit in memory
     - `ffbase` - statistical functions
-
-
 
 - `bigmemory`
     - Also supports biglm stuff.
@@ -52,8 +46,7 @@ Hints for [reading](http://cbio.ensmp.fr/~thocking/reading-large-text-files-into
     - `bigtabulate`
     - `synchronicity`
     - `bigalgebra`
-    
-    
+
 - `bigdata` - may be a little dated and single purposed?
 
 Revolution Analytics:
@@ -69,6 +62,7 @@ Revolution Analytics:
 
 - `foreach`
 
+
 ### Visualization
 
 - [`bigvis`](https://github.com/hadley/bigvis)
@@ -76,13 +70,12 @@ Revolution Analytics:
 
 ### Algorithms
 
-
-
 - `biglm` - linear models, but I think can also access files without loading (chunk).
 - `biglars` - least angle regression, works with ff.
 
 - `bigrf` - random forests
 - `PivotalR` - machine learning, connects to PostgreSQL.
+
 
 ### Database
 
@@ -93,8 +86,16 @@ Revolution Analytics:
 `utils::Rprof()` - general profiling
 `tracemem()`
 
+
 # Other
 
 Use C with `Rcpp`,
 
 Call R from Python with the `pyper` and `rpy2` modules!  Call Python from R with `rPython`.
+
+---
+
+## `ff`
+
+
+

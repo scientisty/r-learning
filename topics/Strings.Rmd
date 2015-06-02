@@ -7,21 +7,32 @@ output: html_document
 
 
 
-
-
 Awesome PDF book [Handling and Processing Strings](http://gastonsanchez.com/Handling_and_Processing_Strings_in_R.pdf) in R by Gaston Sanchez
-
-`stringr` library
-
 
 
 ### manipulation
 `paste`
 
 
-
-
 ### output
 `cat` 
 
 `format`
+
+
+# `stringr` library
+
+
+### seach
+
+`grep`
+`grepl`...
+
+
+# Regular Expressions
+
+> R supports two regular expression flavors: POSIX 1003.2 and Perl. Regular expression functions in R contain two arguments: extended, which defaults to TRUE, and perl, which defaults to FALSE. By default R uses POSIX extended regular expressions, though if extended is set to FALSE, it will use basic POSIX regular expressions. If perl is set to TRUE, R will use the Perl 5 flavor of regular expressions as implemented in the PCRE library. [[link](http://www.johndcook.com/blog/r_language_regex/)]
+
+`[:digit:]` etc.
+
+Link to a [talk](http://biostat.mc.vanderbilt.edu/wiki/pub/Main/SvetlanaEdenRFiles/regExprTalk.pdf).
