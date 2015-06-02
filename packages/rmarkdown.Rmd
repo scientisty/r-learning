@@ -52,6 +52,11 @@ example of simple code block (without specifying {r}), it is wrapped in pre and 
 getwd()
 ```
 
+```{r, collapse=TRUE}
+# with {r, collapse=TRUE}, evaluated code block is grey, and is wrapped in pre and code tags with class="r" specified in pre
+# the output it generates is just appended to this
+getwd()
+```
 
 ```{r, eval=FALSE}
 # with {r, eval=FALSE}, grey background and same tags as if evaluated
@@ -151,6 +156,7 @@ I think you can commend within `<!--` and `-->`, unclear if it's just for HTML o
 - `knit_patterns`: manages regular expressions to extract R code from the input document
 - `knit_engines`: functions to deal with other languages
 
+---
 
 ### Global Options
 
@@ -161,20 +167,65 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/',
 &#96;&#96;&#96;
 </code></pre>
 
+---
 
 ### [Chunk Options](http://yihui.name/knitr/options/)
 
-`{r [lablel], [options]}`
+
+
+<pre class="r"><code>&#96;&#96;&#96;{r [lablel], [options]}
+CODE
+&#96;&#96;&#96;
+</code></pre>
+
 
 labels?
 
 
 
 
-#### `fig.width=7/fig.height=5`
+
+#### Code Evaluation
+
+- `eval=FALSE`
+whether or not to evaluate chunk, can also selectively execute lines
+
+
+#### Code Evaluation
+
+- `echo=TRUE`
+
+- `results='hide'` 
+- `results=asis` can be used with `cat` to print backticks and other special characters
+
+- `collapse`
+
+- `warning=TRUE`/`error=TRUE`/`message=TRUE`
+- `include=FALSE` whether to include output in document, still evaluated, only option that isn't cached
+
+
+
+#### Code Decoration
+
+
+#### Cache
+
+- `cache=TRUE`
+
+Do not cache chunks which load libraries needed by uncached chunks.
+May need to explicitly set `cache=FALSE` on those chunks.
+
+
+#### Plots
+
+
+- `fig.path=` seems like will save the figures here
+- `dev=` can output multiple formats like `=c('png','jpeg')` and all will go to fig path if set but looks like first is embedded.  If chunk cached might go there too. Options include `tikz` (which could be nice)...
+
+- `fig.width=7/fig.height=5`
 
 in inches (5x7 is default), though perhaps px or other can be specified.
-an also specify globally either in YAML header as:
+and can also specify globally either in YAML header as:
 
 ```
 ---
@@ -194,36 +245,10 @@ knitr::opts_chunk$set(fig.width7, fig.height=5)
 </code></pre>
 
 
-- `fig.path=` seems like will save the figures here
-- `dev=` can output multiple formats like `=c('png','jpeg')` and will go to fig path if set but looks like first is embedded.  If chunk cached might go there too. Options include `tikz` (which could be nice)...
-
-
-
-
-
-
-
-#### `eval=FALSE`
-whether or not to evaluate chunk, can also selectively execute lines
-
-#### `echo=TRUE`
-
-#### `results='hide'`
-
-`results=asis` can be used with `cat` to print backticks and other special characters
-
-#### `warning=TRUE`/`error=TRUE`/`message=TRUE`
-
-#### `cache=TRUE`
-Do not cache chunks which load libraries needed by uncached chunks.
-May need to explicitly set `cache=FALSE` on those chunks.
-
-#### `include=FALSE`
-
-
 
 ---
 
 # Interactive Shiny
 
+See notes on [Shiny](shiny.html).
 
