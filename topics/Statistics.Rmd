@@ -1,5 +1,9 @@
---- title: "Learn Statistics" author: "Spencer Mathews" date: "`r Sys.Date()`" 
-output: html_document ---
+---
+title: "Learn Statistics"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
 
 ---
 
