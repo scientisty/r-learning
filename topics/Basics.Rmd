@@ -10,12 +10,22 @@ http://cran.r-project.org/doc/manuals/R-lang.html
 
 
 
+
+
+
 `distinct` / `duplicated?`
 
 # Interactive Sessions
 
 `sessionInfo()`
 
+
+---
+
+# Links
+
+
+- [RStudio Webinars](http://www.rstudio.com/resources/webinars/) [[GitHub](https://github.com/rstudio/webinars)]
 
 ---
 

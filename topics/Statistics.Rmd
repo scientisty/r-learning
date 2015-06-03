@@ -1,89 +1,116 @@
----
-title: "Learn Statistics"
-author: "Spencer Mathews"
-date: "`r Sys.Date()`"
-output: html_document
----
-
-
-
-
-
-# Links
-
-- Quick-R has sections on [Basic Statistics](http://www.statmethods.net/stats) and [Advanced Statistics](http://www.statmethods.net/advstats)
-
-
-
-
-# Covariance
-var()
-cov() ...symnum()
-cor()
-
-
-
+--- title: "Learn Statistics" author: "Spencer Mathews" date: "`r Sys.Date()`" 
+output: html_document ---
 
 ---
 
+This will be a heavy document about doing statistics in R.  Since the two are almost synonymous, it will also be a chance to illustrate general statistical concepts.
 
-## Model Formulae
+# Statistics
+
+
+
+## Links
+
+- [Little Book of R for Multivariate
+Analysis!](https://little-book-of-r-for-multivariate-analysis.readthedocs.org/en/latest)
+- [Handbook of Biological Statistics](http://www.biostathandbook.com) [[class](https://udel.edu/~mcdonald/statsyllabus.html)]
+- Quick-R has sections on [Basic Statistics](http://www.statmethods.net/stats)
+and [Advanced Statistics](http://www.statmethods.net/advstats)
+
+
+
+
+
+
+
+##Model Formulae
 
 
 
 
 ---
 
+---
 
 # `stats` package
+
+
+
+## Distributions
+
+
+- `dnorm(x, mean = 0, sd = 1, log = FALSE)`
+- `pnorm(q, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)` 
+- `qnorm(p, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)`
+- `rnorm(n, mean = 0, sd = 1)`
+
+
+## Covariance
+
+- `var(x, y = NULL, na.rm = FALSE, use)`
+- `cov(x, y = NULL, use = "everything", method = c("pearson", "kendall", "spearman"))`
+- `cor(x, y = NULL, use = "everything", method = c("pearson", "kendall", "spearman"))`
+- `cov2cor(V)`
+
+- `symnum()` ?
+
+
+---
+
+## Model Fitting
+
+
+- `lm()` - linear model - `glm()` - generalized linear model
+
+- `nls()` - nonlinear least squares
+
+
+`base::summary()` give you info about the model you fitted.  Applied to data
+frames it summarizes each column.
+
+
+## t-Test
+
+Berkeley has nice notes on [using t-tests in
+R](http://statistics.berkeley.edu/computing/r-t-tests).
 
 `t.test()`
 
 
 ## Regressions
 
+
 `poly()`/`polym()`
 
 
-## Distributions
-
-dnorm(x, mean = 0, sd = 1, log = FALSE)
-pnorm(q, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
-qnorm(p, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
-rnorm(n, mean = 0, sd = 1)
-
-
-## Model Fitting
-
-- `lm()` - linear model
-- `glm()` - generalized linear model
-
-- `nls()` - nonlinear least squares
-
-
-`base::summary()` give you info about the model you fitted.  Applied to data frames it summarizes each column.
-
+---
 
 ## Clustering
 
-dist() - distance matrix
-hclust() - has print(), plot(), identify functions
+
+`dist()` - distance matrix
+
+`hclust()` - has print(), plot(), identify functions
 
 
-## Principal Component Analysis
+##Principal Component Analysis
+
 
 - `princomp()`
 
 
 ---
 
+---
 
-# `MASS` packages
+
+# `MASS` package
 
 ## Discriminant Analysis
 
-- `lda()`
-- `qda()`
+- `lda()` - `qda()`
 
+- Thiago Martins on [Discriminant Analysis](https://tgmstat.wordpress.com/2013/12/04/discriminant-analysis) and [Computing and Visualizing LDA](https://tgmstat.wordpress.com/2014/01/15/computing-and-visualizing-lda-in-r)
+- [Discriminant Analysis in R (RPubs by Gabriel Martos)](https://rpubs.com/gabrielmartos/discriminantR)
 
-
+See also `dawai` packages.

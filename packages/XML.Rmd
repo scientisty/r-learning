@@ -7,7 +7,7 @@ output: html_document
 
 
 
-
+- [XML Package (CRAN)](http://cran.r-project.org/web/packages/XML)
 
 
 ### Reading XML
@@ -15,6 +15,11 @@ output: html_document
 `xmlParse()` returns C-level "XMLInternalDocument" by default but if `useInternalNodes = FALSE` then returns R-level "XMLDocument" which is hierarchy of lists.  `xmlTreeParse()` is a convenient wrapper to do this.  `xmlParse` only works on well formed XML documents.
 
 You can parse HTML using xmlParse with `isHTML=TRUE`, or the equivalent `htmlParse()` which yields "HTMLInternalDocument", or with `useInternalNodes = FALSE` yields "XMLDocumentContent".
+
+- `xmlParse()`
+- `xmlTreeParse()`
+- `htmlParse()`
+- `htmlTreeParse()`
 
 
 ## Tree Manipulation
