@@ -5,19 +5,19 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
-
-This is oriented toward authoring markdown in RStudio/knitr but will be more general than that.
-
-
-# Flavors of Markdown
-
-
+This is oriented toward authoring markdown in RStudio/knitr.
 
 ---
+
 
 # Links
 
 - [Rmarkdown Homepage](http://rmarkdown.rstudio.com)
+
+
+- [Fast-track publishing using knitr](http://gforge.se/2013/12/fast-track-publishing-using-knitr-part-i/)
+- [Fast-track publishing using the new R markdown](http://gforge.se/2014/07/fast-track-publishing-using-rmarkdown/)
+
 
 
 # Relevant Libraries
@@ -29,12 +29,15 @@ This is oriented toward authoring markdown in RStudio/knitr but will be more gen
 - [htmlwidgets](http://www.htmlwidgets.org/) - javascript bindings for console, R Markdown, Shiny, etc.
 
 
+---
+
 # R Markdown
 
-
+It's super easy to compile Rmd documents with R Studio, but 
 
 
 ### Code
+
 Inline with backticks.  If you start the code segment with r space then it will execute (three backticks appears to be usable inline? but don't do it)
 Blocks with three backticks or indent 4 spaces or one tab.  Putting `{r}` after the three backticks makes the code executable.
 
@@ -113,6 +116,10 @@ Experiments with specifying HTML tags explicitely:
 
 
 
+### Tables
+
+`knitr::kable()`
+
 
 ---
 
@@ -125,11 +132,37 @@ Experiments with specifying HTML tags explicitely:
 I noticed that if you do not leave a blank line between text and a figure generating code block then the figure will be put on the same line and likely run off the page.  This affected PDF output, but not HTML.
 
 
+
+----------------------------------------
+
+# rmarkdown package
+
+- [rmarkdown @github](https://github.com/rstudio/rmarkdown)
+
+`rmarkdown::render()` will knit Rmd (using knitr::knit()) and produce output with pandoc.  You can render plain markdown (flavor support?) and it will skip the knitr.
+
+Defaults to HTML.  You can specify one or more output formats in the YAML header, as arguments to render, or externally in `_output.yaml`.
+
+Built in output formats:
+- html_document
+- pdf_document
+- word_document
+- md_document
+- beamer_presentation
+- ioslides_presentation
+- slidy_presentation
+
+There are different options available for different engines, including `toc: true`, `theme: xxx`, etc.
+
+
+
+
+
 ----------------------------------------
 
 
 
-# knitr 
+# knitr package
 
 Both LyX and R Studio support knitr!
 
@@ -171,8 +204,6 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/',
 
 ### [Chunk Options](http://yihui.name/knitr/options/)
 
-
-
 <pre class="r"><code>&#96;&#96;&#96;{r [lablel], [options]}
 CODE
 &#96;&#96;&#96;
@@ -181,6 +212,15 @@ CODE
 
 labels?
 
+
+#### Alternative Language Engines
+
+Knitr supports many [language engines](http://yihui.name/knitr/demo/engines).
+
+engine='python'
+opts_chunk$set(engine = 'python')
+
+Be aware that except for the default `engine='R'` all chunks are executed in separate sessions so sharing variables can be tricky.
 
 
 

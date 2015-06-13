@@ -6,7 +6,7 @@ output: html_document
 ---
 
 
-http://cran.r-project.org/doc/manuals/R-lang.html
+
 
 
 
@@ -25,7 +25,17 @@ http://cran.r-project.org/doc/manuals/R-lang.html
 # Links
 
 
+- [R Manuals](http://cran.r-project.org/manuals.html)
+    - [R Language Definition](http://cran.r-project.org/doc/manuals/R-lang.html), etc.
+
+
 - [RStudio Webinars](http://www.rstudio.com/resources/webinars/) [[GitHub](https://github.com/rstudio/webinars)]
+
+
+- [Programming in R](http://manuals.bioinformatics.ucr.edu/home/programming-in-r) from [Bioconductor](http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual)
+
+
+ - [R Pubs](http://rpubs.com/) is a place to publish and has good docs written by users
 
 ---
 
@@ -153,6 +163,8 @@ S3 and S4 classes
 
 
 ### [Environments](http://cran.r-project.org/doc/manuals/R-lang.html#Environment-objects)
+
+See a nice blog [post](http://blog.obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff) about environments and scoping.
 
 `ls()`
 `rm()`

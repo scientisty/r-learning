@@ -9,15 +9,14 @@ So how do we make floats 32-bit and not 64?
 
 
 # Links
-A cool [mindmap of R packages for Big Data](https://www.xmind.net/m/LKF2/) (there is also one for [Python](https://www.xmind.net/m/WvfC/)).
 
-[CRAN HPC Task](http://cran.r-project.org/web/views/HighPerformanceComputing.html)
+- A cool [mindmap of R packages for Big Data](https://www.xmind.net/m/LKF2/) (there is also one for [Python](https://www.xmind.net/m/WvfC/)).
+- [CRAN HPC Task](http://cran.r-project.org/web/views/HighPerformanceComputing.html)
+- Here are some [tips](http://blog.revolutionanalytics.com/2013/12/tips-on-computing-with-big-data-in-r.html) for HPC in R.
+- Hints for [reading](http://cbio.ensmp.fr/~thocking/reading-large-text-files-into-R.html) large tables, and more [hints](http://theodi.org/blog/fig-data-11-tips-how-handle-big-data-r-and-1-bad-pun).
+- [Benchmarks](https://statcompute.wordpress.com/2014/02/11/efficiency-of-importing-large-csv-files-in-r/) of different methods.
 
-Here are some [tips](http://blog.revolutionanalytics.com/2013/12/tips-on-computing-with-big-data-in-r.html) for HPC in R.
-
-Hints for [reading](http://cbio.ensmp.fr/~thocking/reading-large-text-files-into-R.html) large tables, and more [hints](http://theodi.org/blog/fig-data-11-tips-how-handle-big-data-r-and-1-bad-pun).
-
-[Benchmarks](https://statcompute.wordpress.com/2014/02/11/efficiency-of-importing-large-csv-files-in-r/) of different methods.
+- [How-to go parallel in R](http://gforge.se/2015/02/how-to-go-parallel-in-r-basics-tips/)
 
 
 # Tips

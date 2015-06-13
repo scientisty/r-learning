@@ -76,10 +76,10 @@ Also for connections: `readLines()` (works for http too), `writeLines()`, `readB
 
 ### Saving objects to disk
 
-`saveRDS()`/`loadRDS()` "Functions to write a single R object to a file, and to restore it."  They are higher level interfaces to `serialize()`/`unserialize`.
+`saveRDS()`/`loadRDS()` "Functions to write a single R object to a file, and to restore it."  They are higher level interfaces to `serialize()`/`unserialize`.  `*.rds` extension by convention.
 
 #### Saving
-`save()`
+`save()`, `*.rda` extension by convention.
 
 #### Restoring
 `load()`

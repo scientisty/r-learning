@@ -5,9 +5,26 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
-You will probably want to use ggplot2 or ggvis, but it's useful to know something about base [graphics](http://cran.r-project.org/doc/manuals/r-release/R-intro.html#Graphics).
+You will probably want to use ggplot2 or ggvis, but it's useful to know something about the base [`graphics` package](http://cran.r-project.org/doc/manuals/r-release/R-intro.html#Graphics).
 
 
+Other Packages
+
+1. grid
+2. trellis
+3. ggplot2
+4. ggvis
+
+- rCharts
+- plotly
+- googleVis
+- ggobi
+
+
+High level vs low level plotting functions...
+
+
+`plot()`
 
 
 
@@ -15,7 +32,7 @@ You will probably want to use ggplot2 or ggvis, but it's useful to know somethin
 
 `coplot()`
 
-
+`par()`
 
 
 

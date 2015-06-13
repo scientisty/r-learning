@@ -15,11 +15,13 @@ This will be a heavy document about doing statistics in R.  Since the two are al
 
 ## Links
 
-- [Little Book of R for Multivariate
-Analysis!](https://little-book-of-r-for-multivariate-analysis.readthedocs.org/en/latest)
+- [R Tutorial (Statistics)](http://www.r-tutor.com)
+- [Little Book of R for Multivariate Analysis!](https://little-book-of-r-for-multivariate-analysis.readthedocs.org/en/latest)
 - [Handbook of Biological Statistics](http://www.biostathandbook.com) [[class](https://udel.edu/~mcdonald/statsyllabus.html)]
 - Quick-R has sections on [Basic Statistics](http://www.statmethods.net/stats)
 and [Advanced Statistics](http://www.statmethods.net/advstats)
+
+- [Data Science with R](https://garrettgman.github.io/)
 
 
 
@@ -41,6 +43,10 @@ and [Advanced Statistics](http://www.statmethods.net/advstats)
 
 
 ## Distributions
+
+R has builtin support for many [distributions](https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Distributions.html).
+
+> The functions for the density/mass function, cumulative distribution function, quantile function and random variate generation are named in the form `dxxx`, `pxxx`, `qxxx` and `rxxx` respectively.
 
 
 - `dnorm(x, mean = 0, sd = 1, log = FALSE)`
@@ -118,3 +124,4 @@ R](http://statistics.berkeley.edu/computing/r-t-tests).
 - [Discriminant Analysis in R (RPubs by Gabriel Martos)](https://rpubs.com/gabrielmartos/discriminantR)
 
 See also `dawai` packages.
+
