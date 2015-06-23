@@ -1,0 +1,24 @@
+---
+title: "Style"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+
+
+variables lower case and underscore separate, functions in CamelCase start with cap.
+
+- [Google's R Style Guide](https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml)
+- [Advanced R: Style Guide (Hadley Wickham)](http://adv-r.had.co.nz/Style.html)
+- [Stat405: Style Guide (Hadley Wickham)](http://stat405.had.co.nz/r-style.html)
+
+
+# Naming Conventions
+
+
+# Functions
+
+
+# Comments

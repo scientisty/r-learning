@@ -9,7 +9,7 @@ It might make sense to [Gist](https://gist.github.com/) or [Bitbucket Snippets](
 Topics
 ------
 
-- [R Basics](topics/Basics.html)
+- [Basics](topics/Basics.html)
 - [Configuration](topics/Configuration.html)
 - [Data](topics/Data.html)
 - [Data Frames](topics/Data_Frames.html)
@@ -20,6 +20,14 @@ Topics
 - [Strings](topics/Strings.html)
 - [Tricks](topics/Tricks.html)
 - [Workflow](topics/Workflow.html)
+- [Style](topics/Style.html)
+- [Big Data](topics/Big_Data.html)
+- [Formulas](topics/Forumulas.html)
+- [Presentations](topics/Presentations.html)
+- [Links](topics/Links.html)
+- [Syntax](topics/Syntax.html)
+- [System](topics/System.html)
+- [Visualization](topics/Visualization.html)
 
 
 Packages
@@ -33,7 +41,10 @@ Packages
 - [plotly](packages/plotly.html)
 - [rmarkdown](packages/rmarkdown.html) - including knitr
 - [shiny](packages/shiny.html)
+    - [template](packages/shiny/app_onefile/app.R)
 - [tidyr](packages/tidyr.html)
+- [rgl](packages/rgl.html)
+- [XML](packages/XML.html)
 
 
 

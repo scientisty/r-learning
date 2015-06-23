@@ -5,9 +5,16 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
+---
 
+# Links
 
-- [XML Package (CRAN)](http://cran.r-project.org/web/packages/XML)
+- [XML Package (CRAN)](http://cran.r-project.org/package=XML)
+- [xm2 (CRAN)](http://cran.r-project.org/package=xml2) [[GitHub](https://github.com/hadley/xml2)]
+
+---
+
+# XML
 
 
 ### Reading XML
