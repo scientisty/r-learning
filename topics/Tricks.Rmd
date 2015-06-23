@@ -9,3 +9,40 @@ output: html_document
 
 
 `%in%`
+
+
+
+---
+
+
+# Combinatorics
+
+How to generate combinations and permuations:
+
+
+- `utils::combn()`
+
+    `combn(x, m, FUN = NULL, simplify = TRUE, ...)`
+
+
+- See also `combn()`, `combn2` and `permn()` in `combinat` package!
+    
+    `combn(x, m, fun=NULL, simplify=TRUE, ...)` `combn2(x, n) `
+
+
+- `gtools::combinations()` / `gtools::permuations()` enumerates the possible combinations or permuations of a specified size from the elements of a vector
+
+    Both have same parameters `combinations(n, r, v=1:n, set=TRUE, repeats.allowed=FALSE)`.
+    
+- There is also `caTools::combs()` but it may be redundant
+
+
+`unique()`
+
+`dplyr::distinct()`
+
+`choose()` returns binomial coefficient
+
+`outer()`
+
+

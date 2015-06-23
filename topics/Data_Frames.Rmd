@@ -44,6 +44,7 @@ Note: these may apply more broadly than data frames.
 `split()`
 
 `by`
+`ave`
 `aggregate()`
 
 `bin()`
@@ -54,12 +55,24 @@ Note: these may apply more broadly than data frames.
 
 Factors can be unordered or [ordered](http://www.cookbook-r.com/Manipulating_data/Changing_the_order_of_levels_of_a_factor/).  Ordered factors impose an inequality among levels.
 
-- `factor()` - create factor
 
+- `factor()` - create factor
 - `ordered()` - create ordered factor
 
-- `relevel()`
 
+- `relevel()`
 - `reorder()`
 
+
+- `droplevels()` The function droplevels is used to drop unused levels from a factor or, more commonly, from factors in a data frame.
+    - related: `drop()` Delete the dimensions of an array which have only one level.
+
+
 I believe that factors are by definition characters, so if you end up with numeric data as a factor then to convert to simple numeric values you do `as.numeric(as.character(myfactor))` or else you will end up with sequential integers reflecting the factor levels arbitrarily.
+
+
+---
+
+
+# Tips and Tricks
+

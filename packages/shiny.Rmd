@@ -51,8 +51,26 @@ You can also use a `global.R` but probably not necessary.
 
 minimal = `shinyServer(function(input, output) {})`
 
+- `input$<component_name>` to define _R components_ so you can use these objects in UI
+    - since input values are reactive they must be surrounded by `render*`, `reactive`, `observe`, or `isolate`.
+- `output$<widget_name>` to refer to widget values
 
 `observe()`? `isolate()` in observe?
+
+
+`render* function` | `*Output function`
+-------------------|-----------------
+`renderDataTable` | `dataTableOutput`
+`renderImage` | `imageOutput`
+`renderPlot` | `plotOutput`
+`renderPrint` | `verbatimTextOutput`
+`renderTable` | `tableOutput`
+`renderText` | `textOutput`
+`renderUI` | `htmlOutput` (`uiOutput` is just alias)
+
+
+
+
 
 
 ## `ui.R`
@@ -60,6 +78,8 @@ minimal = `shinyServer(function(input, output) {})`
 See [tutorial lesson 2](http://shiny.rstudio.com/tutorial/lesson2/)
 
 minimal = `shinyUI(fluidPage())`
+
+
 
 
 
@@ -135,6 +155,19 @@ containing `fluidRow()` which contains `column`, `plotOutput`, etc.
 ## Tabbed Layout
 
 
+---
+
+
+# Tips and Tricks
+
+
+Look [here](http://shiny.rstudio.com/reference/shiny/latest/imageOutput.html) for a place to start about mouse interaction in plots.
+
+
+
+
+
+---
 
 # R Markdown and Widgets
 
@@ -160,6 +193,7 @@ Also on `plotOutput` as well as the `renderPlot(..., height=400)` set plot to 40
 
 
 
+---
 
 # Deploy
 

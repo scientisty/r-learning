@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ```{r global_options, include=FALSE}
-knitr::opts_chunk$set(fig.width=5, fig.height=3, dev=c("png","jpeg"), fig.path='Figs/')
+knitr::opts_chunk$set(fig.width=5, fig.height=3)
 ```
 
 ```{r, echo=FALSE, message=FALSE}
@@ -16,7 +16,7 @@ library(tidyr)
 ```
 
 
-You call qplot or ggplot and then add _layers_ with `+`.
+You call `qplot` or `ggplot` and then add _layers_ with `+`.
 
 
 

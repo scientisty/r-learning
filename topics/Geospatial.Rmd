@@ -5,6 +5,18 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
+---
+
+
+# Links
+
+## Tutorials
+
+- [Spatial data in R: Using R as a GIS](https://github.com/Pakillo/R-GIS-tutorial/blob/master/R-GIS_tutorial.md)
+- [Spatial Data in R](https://science.nature.nps.gov/im/datamgmt/statistics/r/advanced/spatial.cfm)
+
+
+---
 
 # Tasks
 
@@ -18,21 +30,18 @@ output: html_document
 The `ripa` package can be used to read aviris files I think.
 
 
+---
+
 # Packages
 
 ## Geospatial Data
 
-__`sp`__ - defines spatial data types
-
-`rgdal`
-
-`maptools`
-
-`shapefiles`
-
-`mapproj`
-
-`spatstat`
+- __`sp`__ - defines spatial data types
+- `rgdal`
+- `maptools`
+- `shapefiles`
+- `mapproj`
+- `spatstat`
 
 
 ## Mapping
@@ -43,22 +52,14 @@ __`sp`__ - defines spatial data types
 - `rworldmap`
 
 
-
 ## Raster Processing
 
-`raster` package
-
-__`ripa`__
+- `raster` package
+- __`ripa`__
 Image processing package that can work with AVIRIS!
 
 EBImage?
 
-
-# Links
-
-[Spatial Data in R](https://science.nature.nps.gov/im/datamgmt/statistics/r/advanced/spatial.cfm)
-
-[Spatial data in R: Using R as a GIS](https://pakillo.github.io/R-GIS-tutorial)
 
 
 

@@ -16,6 +16,14 @@ Vignettes
 `demo()` - some or all packages?
 
 
+
+# Package Information
+
+`help(package="package_name")`
+
+
+---
+
 # Links
 
 - [R Packages (Hadley)](http://r-pkgs.had.co.nz)
@@ -50,3 +58,9 @@ Vignettes
 `statnet`
 
 `networkD3`
+
+
+
+## Working with time/date
+- `libridate`
+

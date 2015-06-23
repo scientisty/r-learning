@@ -25,9 +25,14 @@ output: html_document
 # Links
 
 
+
+
 - [R Manuals](http://cran.r-project.org/manuals.html)
+    - [An Introduction to R](http://cran.r-project.org/doc/manuals/r-release/R-intro.html)
     - [R Language Definition](http://cran.r-project.org/doc/manuals/R-lang.html), etc.
 
+
+- [Advanced R (Hadley Wickham)](http://adv-r.had.co.nz/)
 
 - [RStudio Webinars](http://www.rstudio.com/resources/webinars/) [[GitHub](https://github.com/rstudio/webinars)]
 
@@ -35,12 +40,36 @@ output: html_document
 - [Programming in R](http://manuals.bioinformatics.ucr.edu/home/programming-in-r) from [Bioconductor](http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual)
 
 
- - [R Pubs](http://rpubs.com/) is a place to publish and has good docs written by users
+- [R Pubs](http://rpubs.com/) is a place to publish and has good docs written by users
+
+
+- [R Conferences](http://www.r-project.org/conferences.html)
+    - [useR! 2014 @UCLA](http://user2014.stat.ucla.edu/)
+    - [useR! 2013 @Spain](http://www.edii.uclm.es/~useR-2013/)
+    - [useR! 2007 @Iowa State](http://user2007.org/)
+
 
 ---
 
+# Objects
+
+
+
 # Data Types
 
+
+
+typeof | mode | storage.mode
+-------|------|-------------
+logical | logical | logical
+integer | numeric | integer
+double | numeric | double
+complex | complex | complex
+character | character | character
+raw | raw | raw
+
+
+Learn about data types and more in [An Introduction to R](http://cran.r-project.org/doc/manuals/r-release/R-intro.html).
 
 http://digitheadslabnotebook.blogspot.com/2010/01/r-type-system.html
 
@@ -48,10 +77,15 @@ http://digitheadslabnotebook.blogspot.com/2010/01/r-type-system.html
 - numeric
 - character
 
+vector
 
-list
+- list ("generic vector") An R list is an object consisting of an ordered collection of objects known as its components. There is no particular need for the components to be of the same mode or type.
 
-vector (generic vector = list?)
+    - `list()` 
+    - `unlist()` flattens list
+
+
+> Matrices and arrays are simply vectors with the attribute dim and optionally dimnames attached to the vector.
 
 matrix
 
@@ -61,39 +95,41 @@ array
 >
 > A two-dimensional array is the same thing as a matrix.
 
+
 data frame
+
 ...
 
+# Misc Functions
 
-### Some Functions
-
-`list()`
-`unlist`
-
-- `c()` : more generic than append and can concatenate vectors or lists
-- `append` : wraps c and allows for positional insertion with `after=` parameter.
-
-Combine lists? c or append or what?
+- 'length()`
 
 
 
+# Objects and stuff
 
-# Objets and stuff
+- `typeof()`
+- `class()`
+- `mode()`
 
-`typeof()`
-`class()`
-`mode()`
 
-`str()`
+- `str()` "Compactly display the internal structure of an R object, a diagnostic function and an alternative to summary"
+
 
 `print()`
 
+
 `is.atomic()`
+...
 
 
 ### attributes
-attributes() - all attributes
-attr() - individually
+
+You can retrieve and assign attributes:
+
+- `attributes()` - all attributes
+- `attr()` - individually
+- `mostattributes()`
 
 Assign `NULL` to attributes to remove them.
 
@@ -102,6 +138,7 @@ Assign `NULL` to attributes to remove them.
 # Booleans
 
 all()
+
 
 # Regular Expressions
 
@@ -115,6 +152,7 @@ etc.
 
 grep/grepl
 
+
 # Functions
 Call by value only!?
 
@@ -125,7 +163,20 @@ Call by value only!?
 
 # Indexing
 
-`[[]]`
+Read about indexing [here](http://cran.r-project.org/doc/manuals/r-release/R-lang.html#Indexing) and ...
+
+
+`[[]]` vs `[]`...
+
+
+
+# Manipulating Data Structures
+
+
+- `c()` : more generic than append and can concatenate vectors or lists
+- `append` : wraps c and allows for positional insertion with `after=` parameter.
+
+Combine lists? c or append or what?
 
 
 ---
@@ -166,7 +217,7 @@ S3 and S4 classes
 
 See a nice blog [post](http://blog.obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff) about environments and scoping.
 
-`ls()`
+`ls()` has multiple uses!...
 `rm()`
 `objects()`
 
@@ -189,7 +240,7 @@ http://digitheadslabnotebook.blogspot.com/2011/06/environments-in-r.html
 
 # Topics
 
-### Set Operations
+### [Set Operations](https://stat.ethz.ch/R-manual/R-devel/library/base/html/sets.html)
 
 1. `union`
 2. `intersect`
@@ -197,10 +248,14 @@ http://digitheadslabnotebook.blogspot.com/2011/06/environments-in-r.html
 4. `setequal`
 5. `is.element`
 
-- `%in%`
+`choose()`
+
+- `%in%` : is.element(x, y) is identical to x %in% y.
 
 
 ### Repetition and Permutation
+
+See document on [Tricks](Tricks.html)
 
 ---
 
@@ -209,8 +264,35 @@ http://digitheadslabnotebook.blogspot.com/2011/06/environments-in-r.html
 `if` `else`
 
 
+## Loops
+
+http://paleocave.sciencesortof.com/2013/03/writing-a-for-loop-in-r/
+http://rforpublichealth.blogspot.com/2013/01/for-loops-and-how-to-avoid-them.html
+http://www.dummies.com/how-to/content/how-to-loop-through-values-in-r.html
+
+`for`
+
+```
+for(i in values){
+  ... do something ...
+}
+```
+
+Or consider the apply family of functions:
+http://www.dummies.com/how-to/content/how-to-apply-functions-on-rows-and-columns-in-r.html
+
 
 ---
 
-### Working with time/date
-- `libridate`
+# Constants
+
+R has a small number of built-in constants:
+
+
+- `LETTERS`: the 26 upper-case letters of the Roman alphabet;
+- `letters`: the 26 lower-case letters of the Roman alphabet;
+- `month.abb`: the three-letter abbreviations for the English month names;
+- `month.name`: the English names for the months of the year;
+- `pi`: the ratio of the circumference of a circle to its diameter.
+
+

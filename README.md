@@ -1,10 +1,13 @@
+Spencer's R Notes
+=================
 
 Here is where I place my notes and bits of code so I don't have to keep relearning things.
 
 It might make sense to [Gist](https://gist.github.com/) or [Bitbucket Snippets](https://bitbucket.org/snippets/) for some of this.
 
 
-# Topics
+Topics
+------
 
 - [R Basics](topics/Basics.html)
 - [Configuration](topics/Configuration.html)
@@ -18,7 +21,9 @@ It might make sense to [Gist](https://gist.github.com/) or [Bitbucket Snippets](
 - [Tricks](topics/Tricks.html)
 - [Workflow](topics/Workflow.html)
 
-# Packages
+
+Packages
+--------
 
 - [dplyr](packages/dplyr.html)
 - [ggplot2](packages/ggplot2.html)
@@ -26,12 +31,10 @@ It might make sense to [Gist](https://gist.github.com/) or [Bitbucket Snippets](
 - [googleVis](packages/googleVis.html)
 - [graphics](packages/graphics.html)
 - [plotly](packages/plotly.html)
-- [rmarkdown](packages/rmarkdown.html)
+- [rmarkdown](packages/rmarkdown.html) - including knitr
 - [shiny](packages/shiny.html)
 - [tidyr](packages/tidyr.html)
 
-
-knitr!
 
 
 

@@ -154,6 +154,7 @@ Built in output formats:
 
 There are different options available for different engines, including `toc: true`, `theme: xxx`, etc.
 
+? How to use these in R Studio?
 
 
 
@@ -261,11 +262,11 @@ May need to explicitly set `cache=FALSE` on those chunks.
 
 - `fig.path=` seems like will save the figures here
 - `dev=` can output multiple formats like `=c('png','jpeg')` and all will go to fig path if set but looks like first is embedded.  If chunk cached might go there too. Options include `tikz` (which could be nice)...
+Defaults to PNG for HTML and PDF for LaTeX output.
 
-- `fig.width=7/fig.height=5`
+- `fig.width=7/fig.height=5` in inches (5x7 is default), though perhaps px or other can be specified.
 
-in inches (5x7 is default), though perhaps px or other can be specified.
-and can also specify globally either in YAML header as:
+Can also specify fig width/height globally either in YAML header as:
 
 ```
 ---

@@ -23,23 +23,26 @@ output: html_document
 
 #### `apply()`
 
-- "Returns a vector or array or list of values obtained by applying a function to margins of an array or matrix."
-- You specify the _margin_!
+"Returns a vector or array or list of values obtained by applying a function to margins of an array or matrix."
+
+You specify the `MARGIN`: "a vector giving the subscripts which the function will be applied over. E.g., for a matrix 1 indicates rows, 2 indicates columns, c(1, 2) indicates rows and columns. Where X has named dimnames, it can be a character vector selecting dimension names.""
 
 #### `lapply()`
 
 - `lapply` returns a list of the same length as X, each element of which is the result of applying FUN to the corresponding element of X."
-    - "`sapply` is a user-friendly version and wrapper of lapply by default returning a vector, matrix or, if simplify = "array", an array if appropriate, by applying simplify2array()."
-        - "`vapply` is similar to sapply, but has a pre-specified type of return value, so it can be safer (and sometimes faster) to use."
-        - "`replicate` is a wrapper for the common use of sapply for repeated evaluation of an expression (which will usually involve random number generation)."
-        - "`rapply` is a recursive version of lapply."
+    - "`sapply` is a user-friendly version and wrapper of `lapply` by default returning a vector, matrix or, if simplify = "array", an array if appropriate, by applying `simplify2array()`."
+        - "`vapply` is similar to `sapply`, but has a pre-specified type of return value, so it can be safer (and sometimes faster) to use."
+        - "`replicate` is a wrapper for the common use of `sapply` for repeated evaluation of an expression (which will usually involve random number generation)."
+        - "`rapply` is a recursive version of `lapply`."
 
 #### `mapply()`
 
-- "`mapply` is a multivariate version of sapply. mapply applies FUN to the first elements of each ... argument, the second elements, the third elements, and so on."  Also see `outer`.
+- "`mapply` is a multivariate version of `sapply`. `mapply` applies FUN to the first elements of each ... argument, the second elements, the third elements, and so on."  Also see `outer`.
 
 
 #### `tapply()`
 
 - "Apply a function to each cell of a ragged array, that is to each (non-empty) group of values given by a unique combination of the levels of certain factors."  ???
-    - sweep and aggregate are convenience.
+    - `sweep` and `aggregate` are convenience.
+    
+    - `by` is an object-oriented wrapper for `tapply` applied to data frames.

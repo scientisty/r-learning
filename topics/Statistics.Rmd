@@ -25,11 +25,18 @@ and [Advanced Statistics](http://www.statmethods.net/advstats)
 
 
 
+## Packages
+
+- `stats` : the built in package
+- [`corplot`](http://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html)
+    - [](http://www.sthda.com/english/wiki/correlation-matrix-a-quick-start-guide-to-analyze-format-and-visualize-a-correlation-matrix-using-r-software)
 
 
 
 
-##Model Formulae
+## Model Formulae
+
+http://www.dummies.com/how-to/content/how-to-use-the-formula-interface-in-r.html
 
 
 
@@ -55,7 +62,10 @@ R has builtin support for many [distributions](https://stat.ethz.ch/R-manual/R-p
 - `rnorm(n, mean = 0, sd = 1)`
 
 
-## Covariance
+## Variance
+
+
+
 
 - `var(x, y = NULL, na.rm = FALSE, use)`
 - `cov(x, y = NULL, use = "everything", method = c("pearson", "kendall", "spearman"))`
@@ -63,6 +73,15 @@ R has builtin support for many [distributions](https://stat.ethz.ch/R-manual/R-p
 - `cov2cor(V)`
 
 - `symnum()` ?
+
+See `corrplot` packages for visualization, including [`corrplot()`](http://www.sthda.com/english/wiki/visualize-correlation-matrix-using-correlogram) function and [`rquery.cormat()`](http://www.sthda.com/english/wiki/correlation-matrix-an-r-function-to-do-all-you-need) function.
+
+
+And some good information about [correlation analysis](http://www.sthda.com/english/wiki/correlation).
+
+- Pearson r : linear dependence
+- Kendall tau : rank-based correlation coefficient
+- Spearman rho : rank-base correlation coefficient
 
 
 ---
@@ -79,12 +98,45 @@ R has builtin support for many [distributions](https://stat.ethz.ch/R-manual/R-p
 frames it summarizes each column.
 
 
-## t-Test
+## _t_-Test
 
 Berkeley has nice notes on [using t-tests in
 R](http://statistics.berkeley.edu/computing/r-t-tests).
 
-`t.test()`
+`t.test()` Performs one and two sample t-tests on vectors of data.
+There is a standard and formula interface.
+
+
+```
+## Default S3 method:
+t.test(x, y = NULL,
+       alternative = c("two.sided", "less", "greater"),
+       mu = 0, paired = FALSE, var.equal = FALSE,
+       conf.level = 0.95, ...)
+```
+
+```
+## S3 method for class 'formula'
+t.test(formula, data, subset, na.action, ...)
+```
+
+- `formula`	a formula of the form lhs ~ rhs where lhs is a numeric variable giving the data values and rhs a factor with two levels giving the corresponding groups.
+
+
+Returns
+
+A list with class `htest` containing the following components:
+
+- `statistic`	the value of the t-statistic.
+- `parameter`	the degrees of freedom for the t-statistic.
+- `p.value`	the p-value for the test.
+- `conf.int` a confidence interval for the mean appropriate to the specified alternative hypothesis.
+- `estimate` the estimated mean or difference in means depending on whether it was a one-sample test or a two-sample test.
+- `null.value` the specified hypothesized value of the mean or mean difference depending on whether it was a one-sample test or a two-sample test.
+- `alternative` a character string describing the alternative hypothesis.
+- `method` a character string indicating what type of t-test was performed.
+- `data.name`	a character string giving the name(s) of the data.
+
 
 
 ## Regressions
