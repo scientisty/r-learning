@@ -32,12 +32,24 @@ output: html_document
     - [R Language Definition](http://cran.r-project.org/doc/manuals/R-lang.html), etc.
 
 
-- [Advanced R (Hadley Wickham)](http://adv-r.had.co.nz/)
+- [Hadley Wickham](http://had.co.nz/)
+    - [Advanced R (Hadley Wickham)](http://adv-r.had.co.nz/)
+    - [Courses Taught by Hadley Wickham](http://courses.had.co.nz/)
+
+
+- [Gaston Sanchez](http://gastonsanchez.com/) has good stuff!
+
+
+- [R Language for Programmers](http://www.johndcook.com/blog/r_language_for_programmers/)
+
 
 - [RStudio Webinars](http://www.rstudio.com/resources/webinars/) [[GitHub](https://github.com/rstudio/webinars)]
 
 
 - [Programming in R](http://manuals.bioinformatics.ucr.edu/home/programming-in-r) from [Bioconductor](http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual)
+
+- [The R Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/) ([pdf](http://www.burns-stat.com/pages/Tutor/R_inferno.pdf))
+- [Impatient R](http://www.burns-stat.com/documents/tutorials/impatient-r/)
 
 
 - [R Pubs](http://rpubs.com/) is a place to publish and has good docs written by users
@@ -47,6 +59,14 @@ output: html_document
     - [useR! 2014 @UCLA](http://user2014.stat.ucla.edu/)
     - [useR! 2013 @Spain](http://www.edii.uclm.es/~useR-2013/)
     - [useR! 2007 @Iowa State](http://user2007.org/)
+    
+
+- [Introduction to R Workshop (Ramnath Vaidyanathan @ Pycon 2015)](https://ramnathv.github.io/pycon2014-r/)
+
+
+#### Tutorials
+
+-  [Kelly Black's R Tutorial](http://www.cyclismo.org/tutorial/R/)
 
 
 ---
@@ -82,7 +102,7 @@ vector
 - list ("generic vector") An R list is an object consisting of an ordered collection of objects known as its components. There is no particular need for the components to be of the same mode or type.
 
     - `list()` 
-    - `unlist()` flattens list
+    - `unlist()` flattens list, turning it into an atomic vector (with possible coercions like `c()`)
 
 
 > Matrices and arrays are simply vectors with the attribute dim and optionally dimnames attached to the vector.
@@ -154,9 +174,23 @@ grep/grepl
 
 
 # Functions
+
+- [Advanced R: Functions](http://adv-r.had.co.nz/Functions.html)
+
+
+
 Call by value only!?
 
+
+### Ellipses
+
 `...` to allow for arbitrary number and variety of arguments and to pass on to other functions
+
+- [How to use R's ellipsis feature](https://stackoverflow.com/questions/3057341/how-to-use-rs-ellipsis-feature-when-writing-your-own-function)
+- [The three-dots construct in R](http://www.burns-stat.com/the-three-dots-construct-in-r/)
+
+
+
 `.Primitive()`?
 
 
@@ -210,6 +244,7 @@ See `compare::compare()`.
 
 
 ### Classes
+
 S3 and S4 classes
 
 
@@ -294,5 +329,17 @@ R has a small number of built-in constants:
 - `month.abb`: the three-letter abbreviations for the English month names;
 - `month.name`: the English names for the months of the year;
 - `pi`: the ratio of the circumference of a circle to its diameter.
+
+
+---
+
+# Help
+
+`help()`
+
+`apropose()` / `find()`
+
+`search()`
+`objects()`
 
 

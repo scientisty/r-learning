@@ -10,11 +10,11 @@ output: html_document
 # Links
 
 - [XML Package (CRAN)](http://cran.r-project.org/package=XML)
-- [xm2 (CRAN)](http://cran.r-project.org/package=xml2) [[GitHub](https://github.com/hadley/xml2)]
+- [xml2 (CRAN)](http://cran.r-project.org/package=xml2) [[GitHub](https://github.com/hadley/xml2)]
 
 ---
 
-# XML
+# XML Package
 
 
 ### Reading XML
@@ -48,7 +48,7 @@ You can parse HTML using xmlParse with `isHTML=TRUE`, or the equivalent `htmlPar
 - `xmlNamespace()` the namespace (if there’s one)
 
 
-# ...
+## ...
 
 `xmlApply()`
 `xmlSApply()`
@@ -59,4 +59,78 @@ You can parse HTML using xmlParse with `isHTML=TRUE`, or the equivalent `htmlPar
 
 
 `readHTMLTable()`...
+
+
+
+---
+
+# `xml2` package
+
+Newer and nicer but not as powerful as `XML`.
+
+- `xml_document`
+- `xml_node`?
+- `xml_nodeset`
+
+
+I think you can start working on the root directly.
+
+
+I'm still figuring out XML namespaces, but when you read in XML with `read_xml()` you can get the `xml_namespace` object using the `xml_ns()` function. An `xml_namespace` object can contain multiple names, with `d1`, `d2`, etc. being the defaults.  You can (and should in order to use `xml_find_all()` to find things in a namespace) rename namespace objects with `xml_ns_rename(ns, d1 = "newname1", d2 = "newname2")`
+
+`xml_name()` returns the name (tag) of an xml element, but you can give a namespace as the second parameter and use fully qualified names.  Also for `xml_find_all()`.
+
+`xml_find_all()` won't work to find things in a namespace unless you provide the second ns parameter.
+
+
+## Classes
+
+- `xml_nodeset`
+- `xml_namespace`
+...
+
+## Functions
+
+###### reading
+- `read_xml()`
+- `read_html()`
+
+###### namespaces
+- `xml_ns()`
+- `xml_ns_rename()`
+
+###### navigation
+- `xml_children()` 
+- `xml_siblings()`
+- `xml_parent()` 
+
+- `xml_find_one()` and `xml_find_all()` use xpath to find nodes of interest
+- `xml_path()` get the full path to a node
+
+###### node information
+- `xml_text()`
+- `xml_attrs()`
+- `xml_attr()`
+- `xml_name()`
+
+###### urls
+- `url_absolute()` convert relative urls to absolute
+, and transform in the opposite direction with 
+- `url_relative()` transform absolute urls to relative
+
+###### misc
+- `as_list()` convert to list
+- `url_escape()` and `url_unescape()` escape and unescape special characters
+
+> Where appropriate, functions support namespaces with a global url -> prefix lookup table. See `xml_ns()` for more details.
+
+> Support for modifying and creating xml documents in planned in a future version.
+
+
+
+
+---
+
+# XPATH
+
 

@@ -6,19 +6,36 @@ output: html_document
 ---
 
 
+# Links
 
-Awesome PDF book [Handling and Processing Strings](http://gastonsanchez.com/Handling_and_Processing_Strings_in_R.pdf) in R by Gaston Sanchez
+- [Handling and Processing Strings in R (by Gaston Sanchez)](http://gastonsanchez.com/Handling_and_Processing_Strings_in_R.pdf) Awesome PDF book!
 
 
 ### manipulation
-`paste`
+
+`paste()`
 
 
 ### output
-`cat` 
 
-`format`
 
+`print` returns the object whereas `cat` does not.  Print also by default adds a newline and also an output line number.  `cat` performs much less conversion" and" is not as object aware but not sure the consequences.
+
+#### `cat()` 
+
+> `cat` is useful for producing output in user-defined functions. It converts its arguments to character vectors, concatenates them to a single character vector, appends the given sep = string(s) to each element and then outputs them.
+
+
+#### `print()`
+
+
+`format()`
+
+
+
+
+
+---
 
 # `stringr` library
 

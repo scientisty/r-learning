@@ -123,7 +123,7 @@ t.test(formula, data, subset, na.action, ...)
 - `formula`	a formula of the form lhs ~ rhs where lhs is a numeric variable giving the data values and rhs a factor with two levels giving the corresponding groups.
 
 
-Returns
+#### Returns
 
 A list with class `htest` containing the following components:
 
@@ -136,6 +136,10 @@ A list with class `htest` containing the following components:
 - `alternative` a character string describing the alternative hypothesis.
 - `method` a character string indicating what type of t-test was performed.
 - `data.name`	a character string giving the name(s) of the data.
+
+
+Testing the t.test on identical data yields statistic=0 (t-value) and p-val=1!
+Learn more about p-values for statistical tests and null hypothesis!
 
 
 

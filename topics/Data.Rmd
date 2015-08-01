@@ -85,3 +85,7 @@ Also for connections: `readLines()` (works for http too), `writeLines()`, `readB
 `load()`
 `attach()`
 `data()`
+
+---
+
+`with`

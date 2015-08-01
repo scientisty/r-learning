@@ -1,0 +1,33 @@
+---
+title: "Math"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+# Mathematics
+
+See `Arithmetic` help topic.
+
+
+- `%/%` integer division
+
+
+# Linear Algebra
+
+Comment on vectors, matrix, arrays, names, and attributes.
+
+- `t()`
+
+
+- `%*%` (`matmult`) matrix multiplication
+- crossprod()
+- `diag`
+
+See also `mapply` and `outer`.
+
+
+`drop`
+
+# Optimization

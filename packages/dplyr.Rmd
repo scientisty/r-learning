@@ -10,6 +10,22 @@ Dplyr lets you omit quotes when referencing stuff, but there are functions which
 
 Do not use meaningful row names with dplyr since they are not guaranteed to be preserved.
 
+
+
+dplyr build around five verbs:
+
+1. `select` certain columns of data.
+2. `filter` your data to select specific rows.
+3. `arrange` the rows of your data into an order.
+4. `mutate` your data frame to contain new columns.
+5. `summarise` chunks of you data in some way.
+
+
+other functions:
+
+- `glimpse`
+
+
 # Objects
 
 ### tbl
@@ -32,8 +48,7 @@ Many dplyr functions conserve attributes, but filter seems to lose them.
 ### `arrange()`
 
 ### `distinct()`
-commonly used as distinct(select(...)) to find uniqe
-~base::unique
+commonly used as distinct(select(...)) to find uniqe, similar to `base::unique`.
 
 
 
@@ -43,6 +58,8 @@ commonly used as distinct(select(...)) to find uniqe
 ### `select()/rename()`
 
 Note that if you're grouped the grouping variable stays around!
+
+There are a number of convenience functions you can use in select, including `everything()`.
 
 `num_range()` lets you select with "X" or other prefix
 
@@ -140,7 +157,7 @@ Also see [this](http://adv-r.had.co.nz/Computing-on-the-language.html) and [this
 
 # `magrittr`
 
-`%>%`
+`%>%` pipe function
 
 
 

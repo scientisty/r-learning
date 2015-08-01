@@ -11,7 +11,7 @@ output: html_document
 
 `table` - contingency table
 
-
+`cut()`
 
 
 - `with()`
@@ -20,6 +20,7 @@ output: html_document
 
 ---
 
+data frames are lists, so you can use `lapply` just the same
 
 
 # Selecting Data
@@ -70,6 +71,9 @@ Factors can be unordered or [ordered](http://www.cookbook-r.com/Manipulating_dat
 
 I believe that factors are by definition characters, so if you end up with numeric data as a factor then to convert to simple numeric values you do `as.numeric(as.character(myfactor))` or else you will end up with sequential integers reflecting the factor levels arbitrarily.
 
+
+
+`gl()`
 
 ---
 

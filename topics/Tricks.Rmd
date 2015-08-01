@@ -10,6 +10,31 @@ output: html_document
 
 `%in%`
 
+`replicate()`
+
+
+---
+
+
+
+
+
+# Vs. Python
+
+In Python you can use `in` in a for loop, but in R it is `%in%`.
+
+
+---
+
+# Subsetting
+
+Atomic vectors can be subest using `[]` and positive integers, negative integers, logical operators, by names.
+
+Using `[` to subset a list will always give a list, whereas `[[]]` (or `$`) allows you to pull out the components.
+
+Subset matrix by `[,]` comma to separate dimensions.
+
+Columns can be selected from data frames using matrix notation or list notation.  Note that when you only select a single column the matrix notation will simplify and not return a df!
 
 
 ---

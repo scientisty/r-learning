@@ -6,20 +6,94 @@ output: html_document
 ---
 
 
+`summary`
+`summarize`
+`aggregate`
 
-1. "split-apply-combine paradigm""
+
+# Links
+
+- [Advanced R: Functionals](http://adv-r.had.co.nz/Functionals.html)
+
+
+- [plyr](http://plyr.had.co.nz/)
+
+
+- [The Split-Apply-Combine Strategy for Data Analysis](http://vita.had.co.nz/papers/plyr.html) Hadley Wickham's paper on plyr, etc.
+
+
+## Presentations
+
+- [Split-Apply-Combine (Ramnath Vaidyanathan)](https://ramnathv.github.io/pycon2014-r/explore/sac.html) for a nice overview of split-appy-combine as well as of the apply family of functions
+ 
+
+## Blog Posts
+
+- [A brief introduction to “apply” in R](https://nsaunders.wordpress.com/2010/08/20/a-brief-introduction-to-apply-in-r/),
+- [A quick primer on split-apply-combine problems](http://4dpiecharts.com/2011/12/16/a-quick-primer-on-split-apply-combine-problems/)
+- [Say it in R with "by", "apply" and friends](http://www.magesblog.com/2012/01/say-it-in-r-with-by-apply-and-friends.html).
+
+
+# Data Processing Workflows
+
+ _split-apply-combine_ paradigm
+
+
+Now `dplyr` is the new go-to data wrangling package.  Before it was `plyr` and `reshape2` (possibly still good).
+
+
+# dplyr
+
+
+
+
+
+
+# Useful Functions
+
+`subset()`
+`aggregate()`
+`summarize()`
+
+
+As mentioned above
+
+1. split
+
+    `split()`
+    
+2. apply
+
+    ?`summarise()`
+
+3. combine
+
+
+
 
 ?...., subset(), merge()
 
 
 
 
-# `dplyr`
 
 
+`dplyr`
 
 
-# Flavors of Apply
+---
+
+`do.call()`
+
+
+# The apply family of functions
+
+- [Using apply, sapply, lapply in R](http://petewerner.blogspot.com/2012/12/using-apply-sapply-lapply-in-r.html)
+- [Apply Functions (LondonR presentation)](http://www.londonr.org/Presentations/Apply%20Function%20Workshop%20-%20Rich%20Pugh.pdf)
+
+
+Basically, `apply` to apply a function to each row or column of matrix, and `lapply` to each element in a list. `sapply` is a use friendsly version of apply and smartly returns a list or matrix.
+
 
 #### `apply()`
 
@@ -29,20 +103,34 @@ You specify the `MARGIN`: "a vector giving the subscripts which the function wil
 
 #### `lapply()`
 
-- `lapply` returns a list of the same length as X, each element of which is the result of applying FUN to the corresponding element of X."
+- "__`lapply`__ returns a list of the same length as X, each element of which is the result of applying FUN to the corresponding element of X."
     - "`sapply` is a user-friendly version and wrapper of `lapply` by default returning a vector, matrix or, if simplify = "array", an array if appropriate, by applying `simplify2array()`."
-        - "`vapply` is similar to `sapply`, but has a pre-specified type of return value, so it can be safer (and sometimes faster) to use."
+        - "`mapply` is a multivariate version of `sapply`. `mapply` applies FUN to the first elements of each ... argument, the second elements, the third elements, and so on."  Also see `outer`.
         - "`replicate` is a wrapper for the common use of `sapply` for repeated evaluation of an expression (which will usually involve random number generation)."
-        - "`rapply` is a recursive version of `lapply`."
-
-#### `mapply()`
-
-- "`mapply` is a multivariate version of `sapply`. `mapply` applies FUN to the first elements of each ... argument, the second elements, the third elements, and so on."  Also see `outer`.
-
+    - "`vapply` is similar to `sapply`, but has a pre-specified type of return value, so it can be safer (and sometimes faster) to use."
+    - "`rapply` is a recursive version of `lapply`."
+    
 
 #### `tapply()`
 
 - "Apply a function to each cell of a ragged array, that is to each (non-empty) group of values given by a unique combination of the levels of certain factors."  ???
     - `sweep` and `aggregate` are convenience.
     
-    - `by` is an object-oriented wrapper for `tapply` applied to data frames.
+    - `by()` is an object-oriented wrapper for `tapply` applied to data frames.
+
+
+
+## Apply Examples
+
+
+
+# Useful Functions
+
+`ave()` `mean()` `median()`
+
+
+---
+
+
+# Tasks
+

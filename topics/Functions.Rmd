@@ -1,0 +1,33 @@
+---
+title: "Functions"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+Bring in stuff from Basics, etc...
+
+
+
+
+## Arguments
+
+
+`...`
+
+
+
+## Return Values
+
+implicit...
+
+
+## Naming
+
+## Scoping
+
+
+## Documentations
+
+?doxygen2
