@@ -1,0 +1,24 @@
+---
+title: "R Utility Scripts"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+## `Rpackages.R`
+
+### Backup and Restore
+
+Without parameters `save_package_list()` and `restore_from_package_list()` will save/load from `Rpackages.Rdata` via an object named `packages`.
+
+- `save_package_list(save_name = "Rpackages.Rdata", save_file=TRUE)`
+- `restore_from_package_list(file_name = "Rpackages.Rdata")`
+
+### Package Tools
+
+`compare_packages()` will give an overview of differences betweenthe set of installed packages and those lsted in the file.
+
+If you have an existing list update it with newl installed packages but running `merge_package_lists()` withouth arguments.
+
+- `compare_packages(file_name = "Rpackages.Rdata")`
+- `merge_package_lists(file_name_A=NULL, file_name_B='Rpackages.Rdata', save_file=TRUE)`

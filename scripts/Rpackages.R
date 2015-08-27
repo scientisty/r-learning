@@ -14,7 +14,10 @@
 save_package_list <- function(save_name = "Rpackages.Rdata", save_file=TRUE) {
   # Save package list as object called "packages" in an RData file
   #
+  
+  # get the package column of the returned matrix
   packages <- installed.packages()[,"Package"]
+  # print how man are installed
   cat(length(packages), "packages are installed\n")
   if(save_file)  save(packages, file=save_name)
   return(packages)
@@ -52,6 +55,8 @@ merge_package_lists <- function(file_name_A=NULL, file_name_B='Rpackages.Rdata',
   # There may be a clever way to do this by specifying the environment to load into...
   # If file_name_A not given then get installed packages
   #
+  
+  # if no Rdata/packages file given then get installed packages
   if(is.null(file_name_A)) {
     packages_A <- installed.packages()[,"Package"]
   } else {
@@ -61,10 +66,12 @@ merge_package_lists <- function(file_name_A=NULL, file_name_B='Rpackages.Rdata',
   load(file_name_B)
   packages_B <- packages
   
+  # get new packages to add
   new_packages <- setdiff(packages_A, packages_B)
   cat("\n\nPackages to be merged:\n----------------------------------------\n", new_packages, "\n\n")
-  combined_packages <- c(packages_B, new_packages)
-  packages <- sort(combined_packages)
+  # add new packages to form combined list
+  combined_packages <- sort(c(packages_B, new_packages))
+  packages <- combined_packages
   
   if(save_file) save(packages, file=file_name_B)
   return(packages)
