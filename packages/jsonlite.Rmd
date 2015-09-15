@@ -1,0 +1,52 @@
+---
+title: "jsonlite"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+Working with JSON in R.
+In short, use jsonlite, but tidyjson wants to tie into the dplyr ecosystem.
+
+
+- [A biased comparsion of JSON packages in R](https://rpubs.com/jeroenooms/31702)
+
+1. [rjson](https://cran.r-project.org/package=rjson)
+2. [RJSONIO](https://cran.r-project.org/package=RJSONIO) ([The RJSONIO Package](http://www.omegahat.org/RJSONIO/))
+3. [jsonlite](https://cran.r-project.org/package=jsonlite) a fork of RJSONIO, with smarter mapping to R objects
+    - [Getting started with JSON and jsonlite](https://cran.r-project.org/web/packages/jsonlite/vignettes/json-aaquickstart.html)
+4. [tidyjson](https://cran.r-project.org/package=tidyjson)
+
+
+Links
+-----
+
+- [Handling JSON data \@gastonsanchez](http://gastonsanchez.com/work/webdata/getting_web_data_r5_json_data.pdf)
+- [Web Scraping: Scaling up Digital Data Collection](http://quantifyingmemory.blogspot.com/2014/03/web-scraping-scaling-up-digital-data.html)
+
+
+JSON Primer
+-----------
+
+JSON Data Types:
+
+- null
+- true
+- false
+- number
+- string
+
+Array Types:
+
+- unnamed arrays (use square brackets `[...,...]`)
+- named arrays (use curley brackets `{"key": value,...}`)
+- can be nested
+
+Command Reference
+-----------------
+
+`toJSON()`
+
+`fromJSON()`
+
+

@@ -66,3 +66,9 @@ Vignettes
 ## Working with time/date
 - `libridate`
 
+
+Creating Packages
+-----------------
+
+- [R packages @hadleywickham](http://r-pkgs.had.co.nz)
+- [Creating R packages in Windows @gastonsanchez](http://gastonsanchez.com/teaching/)

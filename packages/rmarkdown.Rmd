@@ -18,6 +18,10 @@ This is oriented toward authoring markdown in RStudio/knitr.
 - [Fast-track publishing using knitr](http://gforge.se/2013/12/fast-track-publishing-using-knitr-part-i/)
 - [Fast-track publishing using the new R markdown](http://gforge.se/2014/07/fast-track-publishing-using-rmarkdown/)
 
+###### publishing
+
+- [Rpubs](https://rpubs.com)
+
 
 
 # Relevant Libraries

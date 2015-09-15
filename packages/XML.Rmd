@@ -9,19 +9,56 @@ output: html_document
 
 # Links
 
+###### primary links
+
 - [XML Package (CRAN)](http://cran.r-project.org/package=XML)
 - [xml2 (CRAN)](http://cran.r-project.org/package=xml2) [[GitHub](https://github.com/hadley/xml2)]
+
+###### learning
+
+- [Parse and process XML (and HTML) with xml2](http://blog.rstudio.org/2015/04/21/xml2/)
+- [Basics of XML and HTML \@gastonsanchez](http://gastonsanchez.com/work/webdata/getting_web_data_r3_basics_xml_html.pdf)
+- [Parsing XML/HTML Content \@gastonsanchez](http://gastonsanchez.com/work/webdata/getting_web_data_r4_parsing_xml_html.pdf)
+- [R and the web (for beginners), Part II: XML in R](http://giventhedata.blogspot.com/2012/06/r-and-web-for-beginners-part-ii-xml-in.html)
+
+
+---
+
+XML Definitions
+---------------
+
+
+# Tasks
+
+## Parsing XML
+
+## Parsing HTML
+
+Read HTML file by `xml2::read_html()`
 
 ---
 
 # XML Package
 
+### Objects
+
+###### Documents
+
+`XMLInternalDocument` (C-level)
+`XMLDocument` (R-level)
+`HTMLInternalDocument` (C-level)
+`XMLDocumentContent` (R-level)
+
+###### Other
+
+`XMLNode`
+
 
 ### Reading XML
 
-`xmlParse()` returns C-level "XMLInternalDocument" by default but if `useInternalNodes = FALSE` then returns R-level "XMLDocument" which is hierarchy of lists.  `xmlTreeParse()` is a convenient wrapper to do this.  `xmlParse` only works on well formed XML documents.
+`xmlParse()` returns C-level `XMLInternalDocument` by default but if `useInternalNodes = FALSE` then returns R-level `XMLDocument` which is hierarchy of lists.  `xmlTreeParse()` is a convenient wrapper to do this.  `xmlParse()` only works on well formed XML documents.
 
-You can parse HTML using xmlParse with `isHTML=TRUE`, or the equivalent `htmlParse()` which yields "HTMLInternalDocument", or with `useInternalNodes = FALSE` yields "XMLDocumentContent".
+You can parse HTML using `xmlParse` with `isHTML=TRUE` (or equivalently `htmlParse()`) which yields `HTMLInternalDocument`, or with `useInternalNodes = FALSE` (or just `htmlTreeParse()`) which yields `XMLDocumentContent.
 
 - `xmlParse()`
 - `xmlTreeParse()`
@@ -29,13 +66,15 @@ You can parse HTML using xmlParse with `isHTML=TRUE`, or the equivalent `htmlPar
 - `htmlTreeParse()`
 
 
+See `asText=` argument when parsing.
+
 ## Tree Manipulation
 
 - `xmlRoot()`
 - `xmlChildren()`
 
 
-##Node Manipulation
+## Node Manipulation
 
 - `xmlName()` name of the node
 - `xmlSize()` number of subnodes
@@ -93,7 +132,7 @@ I'm still figuring out XML namespaces, but when you read in XML with `read_xml()
 
 ###### reading
 - `read_xml()`
-- `read_html()`
+- `read_html()` : calls `read_xml()` with `as_html = TRUE`
 
 ###### namespaces
 - `xml_ns()`
@@ -102,7 +141,8 @@ I'm still figuring out XML namespaces, but when you read in XML with `read_xml()
 ###### navigation
 - `xml_children()` 
 - `xml_siblings()`
-- `xml_parent()` 
+- `xml_parent()`
+- `xml_contents()`
 
 - `xml_find_one()` and `xml_find_all()` use xpath to find nodes of interest
 - `xml_path()` get the full path to a node
@@ -119,6 +159,7 @@ I'm still figuring out XML namespaces, but when you read in XML with `read_xml()
 - `url_relative()` transform absolute urls to relative
 
 ###### misc
+- `xml_structure()`
 - `as_list()` convert to list
 - `url_escape()` and `url_unescape()` escape and unescape special characters
 
@@ -127,10 +168,11 @@ I'm still figuring out XML namespaces, but when you read in XML with `read_xml()
 > Support for modifying and creating xml documents in planned in a future version.
 
 
-
-
 ---
 
 # XPATH
 
+- `//`  finds anywhere in the document (ignoring the current node)
+- `.//` finds anywhere beneath the current node
 
+`xml_find_all(x, ".//term")`
