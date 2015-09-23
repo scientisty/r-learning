@@ -1,0 +1,69 @@
+---
+title: "Scripting"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+
+concept of `interactive()`?
+
+
+
+## Invoking R
+
+`--vanilla` = `--no-save --no-environ --no-site-file --no-init-file --no-restore`
+
+`--slave` = `--quiet --no-save` Make R run as quietly as possible. This option is intended to support programs which use R to compute results for them.
+
+
+## Scripting
+
+Can write executable script files using a _here document_ like:
+
+```{r, eval=FALSE}
+#!/bin/sh
+[environment variables can be set here]
+R --slave [other options] <<EOF
+    R program goes here...
+EOF
+```
+
+but here stdin() refers to the program source and "stdin" will not be usable.
+
+
+**Short scripts can be passed to Rscript on the command-line via the -e flag.** In quotes (single ok). (Empty scripts are not accepted.)
+
+
+## R
+
+can do:
+
+`R --no-save < code.R 2>1 > output.Rout`
+`--no-save` just tells R not to bother saving the work space when it finishes
+Other possible options are `--vanilla`, `--save`, `--no-environ`, etc.
+See documentation for R shell command, `?Startup`
+
+As an aside we can preface with `nohup nice +18` (18=niceness) and background it with `&` to run when less load on system. And `nohup` keeps running job when you logout.
+
+## R CMD BATCH
+
+`R CMD BATCH myscript.R` but note that you may get bitten by the fact that if you do `R CMD BATCH myscript.R outputfile` the argument is the name of an output file, not a paramter to script! Otherwise it produces a `myscript.Rout` file which has a nice interleaving of commands and output.
+You can provide arguments before the scriptname preceeded by a `-` like `R CMD BATCH -arg1 myscript.R`.
+
+The BATCH default options are `--restore --save --no-readline`
+
+Read R-intro.pdf, it's not clear if vanilla is implied when using R CMD BATCH? Read up on enviornment startup scripts.
+
+
+## Rscript
+
+A newer and cleaner way of running R scripts from the command line is 
+
+Use `commandArgs()` to process arguments.
+
+
+`--default-packages=` e.g.`--default-packages=utils`
+
+can also use vanilla
