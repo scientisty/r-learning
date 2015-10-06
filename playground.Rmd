@@ -1,0 +1,46 @@
+---
+title: "playground"
+output: html_document
+---
+
+
+Here is where I organize my understanding of these things libraries
+
+
+
+
+
+
+
+# ggplot2
+```{r, echo=FALSE}
+library(ggplot2)
+```
+
+# ggvis
+```{r, echo=FALSE, message=FALSE}
+library(ggvis)
+```
+
+
+
+# dplyr
+~plyr
+
+### arrange
+### mutate/transmutate
+### filter/slice
+### select/rename
+### distinct
+
+### group_by
+### summarize
+
+
+
+# tidyr
+~reshape2
+
+# Data Frames
+
+table()
