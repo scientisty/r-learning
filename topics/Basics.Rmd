@@ -2,14 +2,10 @@
 title: "Learning R Basics"
 author: "Spencer Mathews"
 date: "`r Sys.Date()`"
-output: html_document
+output:
+  html_document:
+    toc: true
 ---
-
-
-
-
-
-
 
 
 
@@ -23,8 +19,6 @@ output: html_document
 ---
 
 # Links
-
-
 
 
 - [R Manuals](http://cran.r-project.org/manuals.html)

@@ -20,6 +20,9 @@ General notes about working with data, including reading and writing
 
 [Data input and output](http://www.cookbook-r.com/Data_input_and_output/index.html)
 
+##### Packages
+
+- [readr](https://cran.r-project.org/package=readr) (Hadley) - nice fast intuitive package for reading files!
 
 ### Loading Files
 

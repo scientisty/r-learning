@@ -137,6 +137,11 @@ I noticed that if you do not leave a blank line between text and a figure genera
 
 
 
+### Syntax Notes
+
+- I observed that unlike other processors the `@` symbol must be escaped if used in the text portion of a link. Go figure.
+
+
 ----------------------------------------
 
 # rmarkdown package

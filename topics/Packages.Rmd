@@ -26,9 +26,7 @@ Vignettes
 
 # Links
 
-- [R Packages (Hadley)](http://r-pkgs.had.co.nz)
 - [Writing R Extensions (CRAN)](http://cran.r-project.org/doc/manuals/r-release/R-exts.html)
-- [Creating R packages in Windows (slides by Gaston Sanches)](http://gastonsanchez.com/teaching/)
 
 
 # Useful Packages
@@ -72,3 +70,5 @@ Creating Packages
 
 - [R packages @hadleywickham](http://r-pkgs.had.co.nz)
 - [Creating R packages in Windows @gastonsanchez](http://gastonsanchez.com/teaching/)
+- [R Package Primer](http://kbroman.org/pkg_primer/)
+- [Developing R Packages](https://github.com/jtleek/rpackages)
