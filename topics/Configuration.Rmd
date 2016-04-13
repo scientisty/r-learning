@@ -2,11 +2,12 @@
 title: "Configuration"
 author: "Spencer Mathews"
 date: "`r Sys.Date()`"
-output: html_document
+output:
+ html_document:
+  toc: true
 ---
 
-
-
+***
 
 # Variables
 
@@ -14,25 +15,51 @@ output: html_document
 `R_PROFILE_USER`
 
 
-
-
-
-
-
 # Configuration
 
 
+#### Links
+
+- [Working Directories and Workspaces \@RStudio](https://support.rstudio.com/hc/en-us/articles/200711843-Working-Directories-and-Workspaces)
+- [Customizing RStudio \@RStudio](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio) - on Mac/Linux config stored in `~/.rstudio-desktop/`.
+
+
+#### Startup
+
+The help files describe [Initialization at Start of an R Session](http://search.r-project.org/R/library/base/html/Startup.html)
+
 `.Rprofile` in user home (or current working directory), which on Windows is `%HOMEPATH%\Documents` and will be sourced on startup.  
-* Can list `option()` configurations.
+
+Renviron?
+
+#### Options
+
+* Can list `option()` configurations, or `getOption("option")` to get value of a single option.
 * You can create functions `.First()` and `.Last()` and they will be run at start and end of session.
+
+#### Paths
+
+Determine the R _home directory_ with `R.home()` (also accessible from the command line by `R RHOME`)
+
+`.Library`, `.Library.site`, `.libPaths()`
+
+
+#### Environment Variables
+
+The help files list [Environment Variables](http://search.r-project.org/R/library/base/html/EnvVar.html), and the admin manual has an [Envoronment variable index](https://cran.r-project.org/doc/manuals/r-release/R-admin.html#Environment-variable-index).
+
+`Sys.getenv()`, `Sys.setenv()`
+
+`search()`/`searchpaths()` relate to environments and namespaces...
 
 
 ---
 
 # Packages
 
+## Repositories
 
-
+RStudio has its own nice repo, and there are many CRAN mirrors.  `getOption("repos")` will retrieve the current repo.
 
 ## Packages Paths
 
@@ -52,12 +79,23 @@ output: html_document
 
 `update.packages()`
 
+#### Installing Packages
+
+Basic installations is `install.packages("package_name")` or `install.packages(c("package1", "package2"))`.
+
+`type="source"`, or to `mac.binary`,` `mac.binary.mavericks`, `win.binary`, or `binary` is supposed to select thr right one. Default is usually source, but Windows ususally binary.
+
+`configure.args` parameter can be used to set paramters for source builds.
+
+Where does R keep its config files?
 
 ## Using Packages
 
 `library()`
 `require()`
 
+
+---
 
 ## Upgrading R
 
@@ -82,5 +120,48 @@ update.packages(checkBuilt=TRUE, ask=FALSE)
 Ask and possibly checkBuilt flags may be optional.
 
 ### Other Options
+
 See `updateR()` in [`installr`](https://github.com/talgalili/installr/) package.  For me it worked to upgrade 3.1 to 3.2 but didn't migrate pacakages like it was supposed to, but that could be because I ran it from RStudio and not RGUI.
 
+---
+
+Finicky Packages
+----------------
+
+The [R Administration and Installation](https://cran.r-project.org/doc/manuals/r-release/R-admin.html) manual has a section installing pacakges in [OS X](https://cran.r-project.org/doc/manuals/r-release/R-admin.html#OS-X-packages), and on [Customizing package compilation](https://cran.r-project.org/doc/manuals/r-release/R-admin.html#Customizing-package-compilation). 
+
+This discussing overriding build varaibles in
+`~/.R/MakeVars-R_PLATFORM` (get platform from `R.version()`)
+`~/.R/MakeVars-x86_64-apple-darwin15.2.0` ()
+`~/.R/MakeVars`
+also optional `Makevars.site` in `R_HOME/etc` which is read after `Makeconf` (under R.framework in OS X).
+
+See also [Platform notes for OS X](https://cran.r-project.org/doc/manuals/r-release/R-admin.html#OS-X).
+
+### Installing `rJava`
+
+See section in R admin manual on [Java support](https://cran.r-project.org/doc/manuals/r-release/R-admin.html#Java-support) and [Java on OS X](https://cran.r-project.org/doc/manuals/r-release/R-admin.html#Java-_0028OS-X_0029).
+
+
+__Stop the presses I just saw that the brew caveat says that to support rJava do: `R CMD javareconf JAVA_CPPFLAGS=-I/System/Library/Frameworks/JavaVM.framework/Headers`. This appears to set `JAVA_HOME` (local to R) and a few other things.__
+Actually, try `R CMD javareconf JAVA_CPPFLAGS="-I/System/Library/Frameworks/JavaVM.framework/Headers -I$(/usr/libexec/java_home | grep -o '.*jdk')"`
+
+http://www-01.ibm.com/support/knowledgecenter/SSPT3X_3.0.0/com.ibm.swg.im.infosphere.biginsights.install.doc/doc/install_install_r.html
+
+##### javareconf
+
+Use the `-e` flag to export variables into a new shell instead of write them to R config files. See help since other usage details are a little unclear.
+
+It's not clear what the difference is between exporting `JAVA_HOME` (and possibly others) and doing that assignment after `R CMD javareconf JAVA_CPPFLAGS="path_to_jdk"`.
+
+
+
+##### Java Solution
+
+So after confusing myself with `javareconf` I finally got `rJava` 0.9-8 to compile on OS X with brewed Java 1.8.0_66 by:
+
+1. Following the caveat in the r brew formula: I think it was `grep JAR CMD javareconf JAVA_CPPFLAGS="-I/System/Library/Frameworks/JavaVM.framework/Headers -I/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk"`
+2. Run R from command line and `install.packages('rJava`)`, select mirror 1.
+
+BUT although rJava loads in terminal, it won't load in RStudio!...
+investigate!
