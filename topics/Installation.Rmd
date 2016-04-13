@@ -1,0 +1,26 @@
+---
+title: "R Installation"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+
+
+OSX
+---
+
+
+
+On OSX need `dupes/tcl-tk` for Brew to build R with tcl-tk support. OSX supposedly has an older version but it's not found when R compiles with Brew. No brew options are needed, but believe tck/tk support will silently not build if libs not available.
+
+Think about using `--with-openblas` flag. Not sure what happends if brew openblas is not installed at the time?
+
+
+
+
+
+
+
+

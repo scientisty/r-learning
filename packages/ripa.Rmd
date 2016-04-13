@@ -1,0 +1,77 @@
+---
+title: "ripa"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+
+
+[ripa](https://cran.r-project.org/package=ripa)
+
+[Introduction to Image Processing Using R (Book)](http://link.springer.com/book/10.1007%2F978-1-4471-4950-7)
+
+[Multidimensional Image Processing and Analysis in R](http://crd.lbl.gov/news-and-publications/news/2014/multidimensional-image-processing-and-analysis-in-r/)
+
+
+## Installing
+
+
+```r
+install.packages("ripa", dependencies=c("Depends", "Suggests"))
+library(ripa)
+RIPAgui()
+```
+
+There are lots of packages and libraries!
+
+##### Brew provided libraries
+
+- tcl-tk
+- fftw
+- gtk? - [[SOLVED] Installing rattle on R 3.1 and Mac OS X 10.9 (Mavericks)](http://marcoghislanzoni.com/blog/2014/08/29/solved-installing-rattle-r-3-1-mac-os-x-10-9/), [Installation information for R with GTK+](https://gist.github.com/sebkopf/9405675)
+
+RIPAgui() requires rggobi to run, which needs RGtk2. But that install failed on OSX El Capitan with `Rgtk.c:7:10: fatal error: 'gdk/gdkx.h' file not found`. This seems to be a "compatibility header" for X/Quartz. I tried reinstalling gtk+ brew with `--with-quartz-relocation` flag but still not working (that header did not make it)
+
+
+It seems like R likes to build packages from source, but look into what parameters `package.install()` can take, especially to build from source. See [Installing Packages / OSX](https://cran.r-project.org/doc/manuals/r-release/R-admin.html#OS-X-packages). Note the ability to edit `~/.R/Makevars-R_PLATFORM` to configure build flags. In a pinch OSX binaries can be found [here](https://r.research.att.com/libs/). Source instalatinos call on `R CMD INSTALL` (do you need `--build` flag?).
+
+`dependencies = TRUE`
+`type="source"` or for binary `"mac.binary"` (Snow Leopard) or `"mac.binary.mavericks"` or `"binary"` (Linux?) (or is it `"default"`?) to auto pick binary version
+`lib=`
+
+RGtk2 `install.packages("RGtk2", type="mac.binary.mavericks")`
+But then this:
+
+```
+> library (RGtk2)
+Error in dyn.load(file, DLLpath = DLLpath, ...) : 
+  unable to load shared object '/usr/local/lib/R/3.2/site-library/RGtk2/libs/RGtk2.so':
+  dlopen(/usr/local/lib/R/3.2/site-library/RGtk2/libs/RGtk2.so, 6): Library not loaded: /Library/Frameworks/GTK+.framework/Versions/2.24.X11/Resources/lib/libgtk-x11-2.0.0.dylib
+  Referenced from: /usr/local/lib/R/3.2/site-library/RGtk2/libs/RGtk2.so
+  Reason: image not found
+```
+
+See [Gtk+ goes quartz-only](https://github.com/Homebrew/homebrew/pull/39868) for some good info on this. Perhaps I should fork RGtk2 and try to fix it?
+
+
+The instructions for installing rggobi on OSX include setting `PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig:/usr/local/opt/libxml2/lib/pkgconfig`
+
+this might be where xquartz? puts its stuff? and if you build Cairo with X11 might need this!
+`export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig`
+
+Cairo?:
+`setenv PKG_CONFIG_PATH "`brew --prefix cairo`/lib/pkgconfig:/usr/local/opt/pixman/lib/pkgconfig:/usr/local/opt/fontconfig/lib/pkgconfig:/usr/local/opt/freetype/lib/pkgconfig:/usr/local/opt/libpng/lib/pkgconfig:/usr/X11/lib/pkgconfig"`
+
+Maybe?
+``PKG_CONFIG_PATH "`brew --prefix gtk+`/lib/pkgconfig"``
+
+`git checkout 8dd3478 ` from brew.
+
+So brew install gtk+ with X11, then ggobi.
+Set `PKG_CONFIG_PATH` then build Rgtk2, then rggobi.
+
+Note that even though I have introspection installed, for some reason RGtk+ coudn't find it. It seems that in its [configure](https://github.com/cran/RGtk2/blob/master/configure) `pkg-config` looks for `gobject-introspection` but it looks like it's named `gobject-introspection-1.0`
+
+The R admin guide has some notes regarding [El Capitan](https://cran.r-project.org/doc/manuals/r-release/R-admin.html#El-Capitan) which could provide a cleaner alternative to locating X11 libraries!

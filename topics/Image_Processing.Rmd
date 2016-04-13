@@ -1,0 +1,12 @@
+---
+title: "Image Processing in R"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+
+
+[RIPA](../packages/ripa.html)
+
