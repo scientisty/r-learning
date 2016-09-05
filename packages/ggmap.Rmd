@@ -1,0 +1,95 @@
+---
+title: "ggmap"
+author: "Spencer Mathews"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+- ggmap / [CRAN](CRAN - Package ggmap) / [GitHub](https://github.com/dkahle/ggmap)
+- (ggmap: Spatial Visualization with
+ggplot2 / by David Kahle and Hadley Wickham)[https://journal.r-project.org/archive/2013-1/kahle-wickham.pdf]
+
+### Tutorials
+
+- [Geographic visualization with R's ggmap](http://blog.dominodatalab.com/geographic-visualization-with-rs-ggmaps/)
+
+---
+
+The workhorse function is `get_map`, which is a wrapper for `get_googlemap`, `get_openstreetmap`, `get_stamenmap`, and `get_cloudmademap`. It downloads images and formats them so `ggmap` can plot them (using `ggplot2`). `qmap` combines these steps.
+
+Arguments include `location`, `zoom`
+- `location` - longitude/latitude or string which is passed to `geocode`
+(from 3 to 20).
+- `zoom`
+- `source`/`maptype`
+
+> location an address, longitude/latitude pair (in that order), or left/bottom/right/top bounding
+box
+zoom map zoom, an integer from 3 (continent) to 21 (building), default value 10 (city).
+openstreetmaps limits a zoom of 18, and the limit on stamen maps depends
+on the maptype. "auto" automatically determines the zoom for bounding box
+specifications, and is defaulted to 10 with center/zoom specifications. maps of
+the whole world currently not supported.
+scale scale argument of get_googlemap or get_openstreetmap
+maptype character string providing map theme. options available are "terrain", "terrainbackground",
+"satellite", "roadmap", and "hybrid" (google maps), "terrain", "watercolor",
+and "toner" (stamen maps), or a positive integer for cloudmade maps
+(see ?get_cloudmademap)
+source Google Maps ("google"), OpenStreetMap ("osm"), Stamen Maps ("stamen"), or
+CloudMade maps ("cloudmade")
+force force new map (don’t use archived version)
+messaging turn messaging on/off
+16 get_navermap
+urlonly return url only
+filename destination file for download (file extension added according to format)
+crop (stamen and cloudmade maps) crop tiles to bounding box
+color color ("color") or black-and-white ("bw")
+language language for google maps
+api_key an api key for cloudmade maps
+
+
+
+ggmap
+
+> ggmap Plot a ggmap object
+Description
+> ggmap plots the raster object produced by get_map.
+Usage
+ggmap(ggmap, extent = "panel", base_layer, maprange = FALSE,
+legend = "right", padding = 0.02, darken = c(0, "black"), ...)
+Arguments
+ggmap an object of class ggmap (from function get_map)
+extent how much of the plot should the map take up? "normal", "device", or "panel"
+(default)
+base_layer a ggplot(aes(...), ...) call; see examples
+maprange logical for use with base_layer; should the map define the x and y limits?
+legend "left", "right" (default), "bottom", "top", "bottomleft", "bottomright", "topleft",
+"topright", "none" (used with extent = "device")
+padding distance from legend to corner of the plot (used with legend, formerly b)
+darken vector of the form c(number, color), where number is in [0, 1] and color is a
+character string indicating
+
+```{r, message=FALSE}
+library(ggmap)
+```
+
+```{r}
+qmap("Davis,CA", zoom = 14, source = "osm")
+```
+
+
+```{r, message=FALSE, cache=TRUE}
+us <- c(left = -125, bottom = 25.75, right = -67, top = 49)
+map <- get_map(us, zoom = 3, source="stamen", maptype = "toner-lite")
+ggmap(map)
+```
+
+
+
+```{r}
+map <- get_map("Atlanta", zoom=10)
+p <- ggmap(map)
+ggsave(p, file = "map7.png", width = 5, height = 5, type = "cairo-png")  
+```
+

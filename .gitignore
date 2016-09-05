@@ -1,5 +1,7 @@
 .Rproj.user
 .Rhistory
-.RData
+*.RData
+*.rdb
+*.rdx
 *.html
 .DS_Store
