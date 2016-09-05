@@ -13,9 +13,11 @@ Links
 Tutorials
 ---------
 
-- [Spatial data in R: Using R as a GIS](<https://github.com/Pakillo/R-GIS-tutorial/blob/master/R-GIS_tutorial.md>)
-
-- [Spatial Data in R](<https://science.nature.nps.gov/im/datamgmt/statistics/r/advanced/spatial.cfm>)
+- [Applied Spatial Data Science with R](http://blog.dominodatalab.com/applied-spatial-data-science-with-r/)
+- [Spatial data in R: Using R as a GIS](https://github.com/Pakillo/R-GIS-tutorial/blob/master/R-GIS_tutorial.md)
+- [Spatial Data in R](https://science.nature.nps.gov/im/datamgmt/statistics/r/advanced/spatial.cfm)
+- Making Maps in R ([Part 1](http://www.kevjohnson.org/making-maps-in-r/)) ([Part 2](http://www.kevjohnson.org/making-maps-in-r-part-2/))
+- [RSpatialGuides](https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/) - nice cheat sheets, etc!
 
 ---
 
