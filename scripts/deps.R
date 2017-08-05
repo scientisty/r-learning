@@ -1,5 +1,9 @@
 # Spencer Mathews
 # derived from https://gist.github.com/lgatto/4493747
+#
+# note: tools::package.dependencies is deprecated should use package_dependencies instead
+# look into the miniCRAN package which provides convenient wrappers pkgDep() and makeDepGraph()
+# see also dependsOnPkgs
 
 getDependencies <- function(p,
                             rep = c("BioCsoft", "BioCann", "BioCexp", "BioCextra", "CRAN"),
