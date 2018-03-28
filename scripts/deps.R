@@ -30,7 +30,7 @@ getDependencies <- function(p,
   depLevels <- match.arg(depLevels, several.ok = TRUE)
   deps <- sapply(depLevels,
                  function(.depLevel)
-                   tools:::package.dependencies(pDetails, depLevel = .depLevel)[[1]][, 1])
+                   tools::package.dependencies(pDetails, depLevel = .depLevel)[[1]][, 1])
   deps <- unlist(deps)
   i <- match("R", deps)
   if (length(i) > 0)
